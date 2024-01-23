@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class patrol : MonoBehaviour
 {
+    //patrol for the tumbleweed so it looks like it is moving around more naturally
     public Transform[] waypoints;
     private int currentWaypointsIndex = 0;
     public float speed = 5f;
