@@ -229,7 +229,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.8301887, g: 0.78413856, b: 0.46600214, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1006,7 +1006,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   joystick: {fileID: 865872316}
-  moveSpeed: 2
+  moveSpeed: 5
   isTopDown: 0
   allowKeyControls: 0
   jumpForce: 5
@@ -1321,7 +1321,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.08962262, g: 0.7804431, b: 1, a: 0}
+  m_BackGroundColor: {r: 0.9716981, g: 0.81470066, b: 0.33459416, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
