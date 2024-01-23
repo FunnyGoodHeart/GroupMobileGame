@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AttackTumbleWeed : MonoBehaviour
+public class HealthTumbleweed : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField] int tumsHealths = 10;
     void Start()
     {
         
