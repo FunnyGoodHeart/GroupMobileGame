@@ -8,6 +8,7 @@ public class TumbleWeedMovement : MonoBehaviour
     [SerializeField] GameObject player;
     [SerializeField] float chaseDistance = 2.0f;
     [SerializeField] float moveSpeed = 5.0f;
+    [SerializeField] public bool playerIsInRange = false;
     Vector3 home;
     private void Start()
     {
