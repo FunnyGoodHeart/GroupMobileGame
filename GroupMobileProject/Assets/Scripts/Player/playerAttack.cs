@@ -24,6 +24,7 @@ public class playerAttack : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+
         // Picks up Max Ammo 
         if (collision.gameObject.tag == "Max Ammo" && bulletCount < maxBulletCount)
         {
@@ -35,6 +36,7 @@ public class playerAttack : MonoBehaviour
             myText.text = "Ammo: " + bulletCount;
             Destroy(collision.gameObject);
         }
+
         // Picks up regular ammo
         else if (collision.gameObject.tag == "Ammo Crate" && bulletCount < maxBulletCount)
         {
@@ -60,16 +62,19 @@ public class playerAttack : MonoBehaviour
         float tempX = Input.GetAxisRaw("Horizontal");
         float tempY = Input.GetAxisRaw("Vertical");
 
+        // If player has no ammo, they can't shoot
         if (bulletCount <= 0)
         {
             playerShoot = false;
         }
 
+        // If player has ammo, they can shoot
         else if (bulletCount > 0)
         {
             playerShoot = true;
         }
 
+        // Allows you to shoot with Mouse
         if (mouseShoot)
         {
             Vector3 mousePosition = Input.mousePosition;
@@ -80,6 +85,8 @@ public class playerAttack : MonoBehaviour
             x = shootDir.x;
             y = shootDir.y;
         }
+
+        //Shoot side to side
         else if (tempX != 0 || tempY != 0)
         {
             x = tempX;
