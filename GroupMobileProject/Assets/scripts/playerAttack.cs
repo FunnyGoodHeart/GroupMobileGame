@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class playerAttack : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField] public int playerAtk= 1;
+    [SerializeField] public bool plTriggerAtk = false;
+    [SerializeField] public bool plCollisionAtk = true;
     void Start()
     {
         
