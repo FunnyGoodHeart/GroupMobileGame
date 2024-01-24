@@ -36,7 +36,7 @@ public class playerHealth : MonoBehaviour
     {
         if(collision.gameObject.tag == "TumbleWeed" && atkTums.tumsCollisionAtk)
         {
-           plHealth -= atkTums.atkTumbleweed;
+            plHealth -= atkTums.atkTumbleweed;
             healthText.text = "Health: " + plHealth;
             if (plHealth <= 0)
             {

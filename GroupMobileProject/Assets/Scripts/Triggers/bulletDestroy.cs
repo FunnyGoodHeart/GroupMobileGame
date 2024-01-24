@@ -11,6 +11,7 @@ public class bulletDestroy : MonoBehaviour
     {
         if (collision.gameObject.tag == "Platforms")
         {
+            // Bullet is destroyed when it touches a platform
             Destroy(gameObject);
         }
 

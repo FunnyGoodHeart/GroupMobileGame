@@ -24,6 +24,7 @@ public class playerAttack : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        // Ammo pick up stuff
 
         // Picks up Max Ammo 
         if (collision.gameObject.tag == "Max Ammo" && bulletCount < maxBulletCount)
