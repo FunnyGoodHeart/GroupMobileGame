@@ -5,7 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Player Bullet
-  - Ground
+  - Platforms
+  - TumbleWeed
+  - Enemy Bullet
   layers:
   - Default
   - TransparentFX

@@ -20,7 +20,7 @@ public class HealthTumbleweed : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Player" && plAtk.plTriggerAtk)
+        if(collision.gameObject.tag == "Player Bullet" && plAtk.plTriggerAtk)
         {
             tumsHealths -= plAtk.playerAtk;
         }

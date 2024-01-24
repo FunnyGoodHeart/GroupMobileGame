@@ -279,7 +279,6 @@ GameObject:
   - component: {fileID: 1112488846630496985}
   - component: {fileID: 929078773709787124}
   - component: {fileID: 7997157921111755686}
-  - component: {fileID: 458992282130966620}
   m_Layer: 5
   m_Name: Mobile UI
   m_TagString: Untagged
@@ -371,18 +370,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &458992282130966620
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8100403633550288726}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dabada1287e63b64ea15c31bed3540ef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &7956803439680248015
 PrefabInstance:
   m_ObjectHideFlags: 0
