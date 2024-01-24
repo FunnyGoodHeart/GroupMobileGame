@@ -330,7 +330,7 @@ MonoBehaviour:
   moveSpeed: 5
   isTopDown: 0
   allowKeyControls: 1
-  jumpForce: 12
+  jumpForce: 15
   mobileCanvas: {fileID: 1759439081}
 --- !u!212 &534384202
 SpriteRenderer:
@@ -438,7 +438,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8629a95beb58ac45a388811cae2d2df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerAtk: 1
+  playerAtk: 2
   plTriggerAtk: 1
   plCollisionAtk: 1
   myText: {fileID: 1757516188}
@@ -847,7 +847,7 @@ GameObject:
   - component: {fileID: 1625957991}
   - component: {fileID: 1625957992}
   m_Layer: 0
-  m_Name: Circle
+  m_Name: Tumbleweed PL
   m_TagString: TumbleWeed
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -973,7 +973,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.5943396, g: 0.4871657, b: 0.2270826, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1013,15 +1013,6 @@ MonoBehaviour:
   atkTumbleweed: 5
   tumsTriggerAtk: 0
   tumsCollisionAtk: 1
-  shootDelay: 2
-  shootRange: 10
-  bulletSpeed: 5
-  prefab: {fileID: 8812328700372754122, guid: 307003ad830abbb42917cb000091f51a, type: 3}
-  target: {fileID: 534384200}
-  bulletLifetime: 2
-  predictiveShoot: 1
-  predictiveLead: 1
-  enemyShootSound: {fileID: 0}
 --- !u!114 &1625957992
 MonoBehaviour:
   m_ObjectHideFlags: 0

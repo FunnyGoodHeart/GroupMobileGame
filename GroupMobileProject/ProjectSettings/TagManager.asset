@@ -8,6 +8,8 @@ TagManager:
   - Platforms
   - TumbleWeed
   - Enemy Bullet
+  - Max Ammo
+  - Ammo Crate
   layers:
   - Default
   - TransparentFX

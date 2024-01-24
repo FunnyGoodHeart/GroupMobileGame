@@ -17,7 +17,8 @@ public class PauseMenu : MonoBehaviour {
 		{
 			Time.timeScale = 0;
 			GetComponent<Canvas> ().enabled = true;
-		}else if(Input.GetKeyDown (KeyCode.Escape) && Time.timeScale == 0)
+		}
+		else if(Input.GetKeyDown (KeyCode.Escape) && Time.timeScale == 0)
 		{
 			Resume();
 		}
