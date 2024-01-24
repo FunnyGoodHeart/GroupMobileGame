@@ -10,9 +10,11 @@ public class TumbleWeedMovement : MonoBehaviour
     [SerializeField] float moveSpeed = 5.0f;
     [SerializeField] public bool playerIsInRange = false;
     Vector3 home;
+    Rigidbody2D enemyRB;
     private void Start()
     {
         home = transform.position;
+        enemyRB = GetComponent<Rigidbody2D>();
     }
 
     void Update()
@@ -24,7 +26,7 @@ public class TumbleWeedMovement : MonoBehaviour
         if (moveDirection.magnitude < chaseDistance)
         {
             moveDirection.Normalize();
-            GetComponent<Rigidbody2D>().velocity = moveDirection * moveSpeed;
+            enemyRB.velocity = moveDirection * moveSpeed;
         }
         else
         {
@@ -32,14 +34,14 @@ public class TumbleWeedMovement : MonoBehaviour
             if (moveDirection.magnitude >= 0.5f)
             {
                 moveDirection.Normalize();
-                GetComponent<Rigidbody2D>().velocity = moveDirection * moveSpeed;
+                enemyRB.velocity = moveDirection * moveSpeed;
             }
             // GetComponent<Rigidbody2D>().velocity = Vector3.zero;
             else
             {
                 //close enough
                 transform.position = home;
-                GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+                enemyRB.velocity = Vector3.zero;
             }
         }
 
