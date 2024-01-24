@@ -5,10 +5,10 @@ using UnityEngine;
 
 public class TumbleWeedMovement : MonoBehaviour
 {
+    //for enemies that do not have a patrol route
     [SerializeField] GameObject player;
     [SerializeField] float chaseDistance = 2.0f;
     [SerializeField] float moveSpeed = 5.0f;
-    [SerializeField] public bool playerIsInRange = false;
     Vector3 home;
     Rigidbody2D enemyRB;
     private void Start()
