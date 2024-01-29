@@ -868,7 +868,6 @@ MonoBehaviour:
   player: {fileID: 534384200}
   chaseDistance: 4
   moveSpeed: 3
-  playerIsInRange: 0
 --- !u!50 &1625957987
 Rigidbody2D:
   serializedVersion: 4
