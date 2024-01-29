@@ -9,6 +9,7 @@ public class TumbleWeedMovement : MonoBehaviour
     [SerializeField] GameObject player;
     [SerializeField] float chaseDistance = 2.0f;
     [SerializeField] float moveSpeed = 5.0f;
+    [SerializeField] bool doesRotate = true;
     Vector3 home;
     Rigidbody2D enemyRB;
     private void Start()
@@ -22,6 +23,10 @@ public class TumbleWeedMovement : MonoBehaviour
         Vector3 playerPosition = player.transform.position;
         //calculate the distance between the enemy and the player by Destination-Start
         Vector3 moveDirection = playerPosition - transform.position;
+        if (doesRotate)
+        {
+            FlipSprite();
+        }
         //if the player is close
         if (moveDirection.magnitude < chaseDistance)
         {
@@ -45,5 +50,15 @@ public class TumbleWeedMovement : MonoBehaviour
             }
         }
 
+    }
+
+    void FlipSprite()
+    {
+        bool playerHasHorizontalSpeed = Mathf.Abs(enemyRB.velocity.x) > Mathf.Epsilon;
+
+        if (playerHasHorizontalSpeed)
+        {
+            transform.localScale = new Vector2(-Mathf.Sign(enemyRB.velocity.x), 1f);
+        }
     }
 }

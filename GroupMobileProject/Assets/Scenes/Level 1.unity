@@ -459,7 +459,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 1, g: 0.79511505, b: 0.16509432, a: 0}
+  m_BackGroundColor: {r: 0.41960785, g: 0.54901963, b: 0.6784314, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -1567,6 +1567,7 @@ MonoBehaviour:
   player: {fileID: 534384200}
   chaseDistance: 6
   moveSpeed: 5
+  doesRotate: 0
 --- !u!50 &1625957987
 Rigidbody2D:
   serializedVersion: 4
