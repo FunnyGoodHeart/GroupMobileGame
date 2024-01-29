@@ -735,7 +735,7 @@ GameObject:
   - component: {fileID: 1065135818}
   m_Layer: 6
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: Platforms
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
