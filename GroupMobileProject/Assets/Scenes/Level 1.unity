@@ -314,7 +314,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -339330076, guid: a3b505e87ccddb44da738479a147eb19, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -385,7 +385,7 @@ MonoBehaviour:
   plCollisionAtk: 1
   myText: {fileID: 1757516188}
   prefab: {fileID: 8812328700372754122, guid: 45ff21a4591d9d347b04f618b542a1c0, type: 3}
-  shootSpeed: 10
+  shootSpeed: 30
   bulletLifetime: 2
   mouseShoot: 1
   bulletCount: 60
@@ -536,7 +536,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 4
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1504,7 +1504,7 @@ MonoBehaviour:
   m_Follow: {fileID: 534384203}
   m_Lens:
     FieldOfView: 60
-    OrthographicSize: 5
+    OrthographicSize: 4
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
