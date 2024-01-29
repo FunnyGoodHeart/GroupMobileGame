@@ -201,7 +201,7 @@ Transform:
   m_GameObject: {fileID: 7402066}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 43.23, y: -1.96, z: 0}
+  m_LocalPosition: {x: 46.68, y: -2.68, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -433,6 +433,10 @@ MonoBehaviour:
   jumpForceMin: 5
   jumpForceMax: 10
   jumpInterval: 0.5
+  chasePlayerActive: 1
+  playerTransform: {fileID: 7402068}
+  chaseRange: 5
+  patrolRange: 10
 --- !u!58 &1348437331
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -686,8 +690,8 @@ Transform:
   m_GameObject: {fileID: 1463506972}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.18, y: -6.2555, z: 0}
-  m_LocalScale: {x: 22.0923, y: 3.151, z: 1}
+  m_LocalPosition: {x: 32.0436, y: -6.2555, z: 0}
+  m_LocalScale: {x: 86.53996, y: 3.151, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
