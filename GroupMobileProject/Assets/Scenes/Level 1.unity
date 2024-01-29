@@ -1546,7 +1546,7 @@ GameObject:
   - component: {fileID: 1625957991}
   - component: {fileID: 1625957992}
   m_Layer: 0
-  m_Name: Tumbleweed PL
+  m_Name: Tumbleweed
   m_TagString: TumbleWeed
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1670,8 +1670,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.5943396, g: 0.4871657, b: 0.2270826, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 0aac3bc414b418f48b44b94012e30540, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
