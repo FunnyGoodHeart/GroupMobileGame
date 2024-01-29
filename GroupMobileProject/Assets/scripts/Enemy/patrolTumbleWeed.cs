@@ -9,8 +9,6 @@ public class patrolTumbleWeed : MonoBehaviour
     private int currentWaypointsIndex = 0;
     [SerializeField] float speed = 5f;
 
-
-
     //do small jumps randomly while walking around
     [Header("random Jumping Range")]
     [SerializeField] bool randomJumpingActive = true; //if the caracter sould randomly jump or not
@@ -26,9 +24,10 @@ public class patrolTumbleWeed : MonoBehaviour
     [SerializeField] float chaseRange = 5f;
     [SerializeField] float patrolRange = 10f;
     bool isChasingPlayer = false;
+    Vector2 currentMovementDirection = Vector2.zero;
     private void Update()
     {
-        if (isChasingPlayer)
+        if (isChasingPlayer && chasePlayerActive)
         {
             ChasePlayer();
         }
@@ -42,7 +41,7 @@ public class patrolTumbleWeed : MonoBehaviour
             lastJumpTime = Time.time;
             GetComponent<Rigidbody2D>().AddForce(Vector2.up * Random.Range(jumpForceMin, jumpForceMax), ForceMode2D.Impulse);
         }
-       
+        
     }
     private void Patrol()
     {
@@ -68,5 +67,6 @@ public class patrolTumbleWeed : MonoBehaviour
         {
             isChasingPlayer = false;
         }
+        
     }
 }

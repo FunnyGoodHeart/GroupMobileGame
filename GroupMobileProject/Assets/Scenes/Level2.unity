@@ -324,7 +324,7 @@ Transform:
   m_GameObject: {fileID: 533778973}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.64, y: -1.69, z: 0}
+  m_LocalPosition: {x: 6.94, y: -3.92, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -355,7 +355,7 @@ Transform:
   m_GameObject: {fileID: 642000114}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.07, y: -2.65, z: 0}
+  m_LocalPosition: {x: -0.07, y: -3.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -405,6 +405,7 @@ GameObject:
   - component: {fileID: 1348437331}
   - component: {fileID: 1348437330}
   - component: {fileID: 1348437334}
+  - component: {fileID: 1348437335}
   m_Layer: 0
   m_Name: Tumbleweed
   m_TagString: TumbleWeed
@@ -513,7 +514,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0aac3bc414b418f48b44b94012e30540, type: 3}
   m_Color: {r: 0.4245283, g: 0.24618946, b: 0.122152, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -566,6 +567,64 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!68 &1348437335
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1348437329}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: 0.5035931, y: 0.0021775924}
+  - {x: 0.58685136, y: -0.066293865}
+  - {x: 0.36489332, y: -0.357918}
+  - {x: 0.35923386, y: -0.51145494}
+  - {x: 0.24143174, y: -0.45030344}
+  - {x: 0.008995034, y: -0.59959334}
+  - {x: -0.10513834, y: -0.51627886}
+  - {x: -0.27494818, y: -0.6131662}
+  - {x: -0.43589246, y: -0.29655847}
+  - {x: -0.647354, y: 0.07774721}
+  - {x: -0.44227573, y: 0.24752587}
+  - {x: -0.35435843, y: 0.4142606}
+  - {x: -0.30455896, y: 0.40785158}
+  - {x: -0.0088448655, y: 0.59910846}
+  - {x: 0.28482357, y: 0.49330345}
+  - {x: 0.3723604, y: 0.4175733}
+  - {x: 0.395928, y: 0.3484283}
+  - {x: 0.58287734, y: 0.20396647}
+  - {x: 0.5, y: 0}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
 --- !u!1 &1463506972
 GameObject:
   m_ObjectHideFlags: 0
