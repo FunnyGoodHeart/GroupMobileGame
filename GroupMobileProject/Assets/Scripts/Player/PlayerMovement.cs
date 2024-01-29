@@ -38,7 +38,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Run();
+        Run();
         FlipSprite();
 
 
@@ -90,7 +90,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (playerHasHorizontalSpeed)
         {
-            transform.localScale = new Vector2(Mathf.Sign(rb2d.velocity.x), 1f);
+            transform.localScale = new Vector2(-Mathf.Sign(rb2d.velocity.x), 1f);
         }
     }
 }
