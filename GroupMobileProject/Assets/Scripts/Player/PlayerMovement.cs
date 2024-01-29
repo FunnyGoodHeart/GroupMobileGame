@@ -75,11 +75,15 @@ public class PlayerMovement : MonoBehaviour
             rb2d.AddForce(new Vector2(0, 20 * jumpForce));
         }
     }
+
+    // Used for running and activating animations
     void Run()
     {
         bool playerHasHorizontalSpeed = Mathf.Abs(rb2d.velocity.x) > Mathf.Epsilon;
         myAnimator.SetBool("isRunning", playerHasHorizontalSpeed);
     }
+
+    // Flips Sprite when the character moves left or right
     void FlipSprite()
     {
         bool playerHasHorizontalSpeed = Mathf.Abs(rb2d.velocity.x) > Mathf.Epsilon;
