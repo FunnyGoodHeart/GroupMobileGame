@@ -25,6 +25,7 @@ public class patrolTumbleWeed : MonoBehaviour
     [SerializeField] float patrolRange = 10f;
     bool isChasingPlayer = false;
     Vector2 currentMovementDirection = Vector2.zero;
+    
     private void Update()
     {
         if (isChasingPlayer && chasePlayerActive)
@@ -35,6 +36,7 @@ public class patrolTumbleWeed : MonoBehaviour
         {
             Patrol();
         }
+   
        //random jumping to make it seem like it is with the wind
         if(Time.time - lastJumpTime > jumpInterval && randomJumpingActive)
         {
