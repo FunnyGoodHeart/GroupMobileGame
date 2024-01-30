@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    Collider2D collider;
     Rigidbody2D rb2d;
     [SerializeField] FixedJoystick joystick;
     [SerializeField] float moveSpeed = 2;
     [SerializeField] bool isTopDown = true;
     [SerializeField] bool allowKeyControls = true;
     [SerializeField] float jumpForce = 5.0f;
-    Collider2D collider;
     [SerializeField] Canvas mobileCanvas;
 
     Animator myAnimator;
