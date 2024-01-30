@@ -11,6 +11,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] bool isTopDown = true;
     [SerializeField] bool allowKeyControls = true;
     [SerializeField] float jumpForce = 5.0f;
+    [SerializeField] MainMenu isEasy;
+    [SerializeField] MainMenu isNormal;
+    [SerializeField] MainMenu isHard;
     [SerializeField] Canvas mobileCanvas;
 
     Animator myAnimator;
@@ -20,10 +23,7 @@ public class PlayerMovement : MonoBehaviour
     {
         rb2d = GetComponent<Rigidbody2D>();
         collider = GetComponent<Collider2D>();
-        myAnimator = GetComponent<Animator>();
-        bool isEasy = GetComponent<MainMenu>().IsEasy();
-        bool isNormal = GetComponent<MainMenu>().IsNormal();
-        bool isHard = GetComponent<MainMenu>().IsHard(); 
+        myAnimator = GetComponent<Animator>(); 
         if (isTopDown)
         {
             rb2d.gravityScale = 0;
