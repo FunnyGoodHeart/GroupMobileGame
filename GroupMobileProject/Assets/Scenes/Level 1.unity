@@ -400,7 +400,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   joystick: {fileID: 865872316}
-  moveSpeed: 7
+  moveSpeed: 15
   isTopDown: 0
   allowKeyControls: 1
   jumpForce: 15
@@ -534,7 +534,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bf154c793cce4845a06e7f4acd276dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  plHealth: 20
+  plHealth: 30
   loadDelay: 1
   atkTums: {fileID: 1625957991}
   healthText: {fileID: 1022666354}

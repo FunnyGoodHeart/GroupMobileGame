@@ -21,6 +21,9 @@ public class PlayerMovement : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D>();
         collider = GetComponent<Collider2D>();
         myAnimator = GetComponent<Animator>();
+        bool isEasy = GetComponent<MainMenu>().IsEasy();
+        bool isNormal = GetComponent<MainMenu>().IsNormal();
+        bool isHard = GetComponent<MainMenu>().IsHard(); 
         if (isTopDown)
         {
             rb2d.gravityScale = 0;
@@ -32,6 +35,21 @@ public class PlayerMovement : MonoBehaviour
         if (allowKeyControls)
         {
             mobileCanvas.enabled = false;
+        }
+
+        if (isEasy == true)
+        {
+            moveSpeed = 8;
+        }
+
+        if (isNormal == true)
+        {
+            moveSpeed = 6;
+        }
+
+        if (isHard == true)
+        {
+            moveSpeed = 4;
         }
     }
 

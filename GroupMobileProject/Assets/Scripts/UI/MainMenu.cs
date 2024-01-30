@@ -48,4 +48,18 @@ public class MainMenu : MonoBehaviour
         isHard = true;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
+
+    public bool IsEasy()
+    {
+        return isEasy;
+    }
+    public bool IsNormal()
+    {
+        return isNormal;
+    }
+
+    public bool IsHard()
+    {
+        return isHard;
+    }
 }
