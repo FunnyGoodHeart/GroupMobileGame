@@ -308,6 +308,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1446173311829448365, guid: 150271bb6938ff0489b40209cc3654b9, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1446173311829448365, guid: 150271bb6938ff0489b40209cc3654b9, type: 3}
       propertyPath: difficultyMenu
       value: 
       objectReference: {fileID: 796364452}
@@ -395,6 +399,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Menu Options
       objectReference: {fileID: 0}
+    - target: {fileID: 6742821333548473957, guid: 150271bb6938ff0489b40209cc3654b9, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -416,10 +424,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Difficulty Options
       objectReference: {fileID: 0}
+    - target: {fileID: 1986628098770543920, guid: 55a705e4c7e017e4aafdefc4e8f15102, type: 3}
+      propertyPath: m_Name
+      value: Title
+      objectReference: {fileID: 0}
     - target: {fileID: 3179074825851701487, guid: 55a705e4c7e017e4aafdefc4e8f15102, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1854913366}
+    - target: {fileID: 3896627400201145444, guid: 55a705e4c7e017e4aafdefc4e8f15102, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5115010364147601862, guid: 55a705e4c7e017e4aafdefc4e8f15102, type: 3}
       propertyPath: m_Pivot.x
       value: 0

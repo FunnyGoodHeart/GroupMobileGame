@@ -11,9 +11,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] bool isTopDown = true;
     [SerializeField] bool allowKeyControls = true;
     [SerializeField] float jumpForce = 5.0f;
-    [SerializeField] MainMenu isEasy;
-    [SerializeField] MainMenu isNormal;
-    [SerializeField] MainMenu isHard;
     [SerializeField] Canvas mobileCanvas;
 
     Animator myAnimator;
@@ -35,24 +32,6 @@ public class PlayerMovement : MonoBehaviour
         if (allowKeyControls)
         {
             mobileCanvas.enabled = false;
-        }
-
-        if (isEasy == true)
-        {
-            moveSpeed = 8;
-            Debug.Log("fast movement");
-        }
-
-        if (isNormal == true)
-        {
-            moveSpeed = 6;
-            Debug.Log("normal movement");
-        }
-
-        if (isHard == true)
-        {
-            moveSpeed = 4;
-            Debug.Log("slow movement");
         }
     }
 

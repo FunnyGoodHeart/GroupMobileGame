@@ -31,38 +31,25 @@ public class MainMenu : MonoBehaviour
         Application.Quit();
     }
 
+    // Activates difficulty 
     public void Easy()
     {
         isEasy = true;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene(1);
         Debug.Log("easy");
     }
 
     public void Normal()
     {
         isNormal = true;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene(1);
         Debug.Log("normal");
     }
 
     public void Hard()
     {
         isHard = true;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene(1);
         Debug.Log("hard");
-    }
-
-    public bool IsEasy()
-    {
-        return isEasy;
-    }
-    public bool IsNormal()
-    {
-        return isNormal;
-    }
-
-    public bool IsHard()
-    {
-        return isHard;
     }
 }
