@@ -400,10 +400,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   joystick: {fileID: 865872316}
-  moveSpeed: 15
+  moveSpeed: 20
   isTopDown: 0
   allowKeyControls: 1
   jumpForce: 15
+  isEasy: {fileID: 1446173311829448365, guid: 150271bb6938ff0489b40209cc3654b9, type: 3}
+  isNormal: {fileID: 1446173311829448365, guid: 150271bb6938ff0489b40209cc3654b9, type: 3}
+  isHard: {fileID: 1446173311829448365, guid: 150271bb6938ff0489b40209cc3654b9, type: 3}
   mobileCanvas: {fileID: 1759439081}
 --- !u!212 &534384202
 SpriteRenderer:

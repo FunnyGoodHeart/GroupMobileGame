@@ -40,16 +40,19 @@ public class PlayerMovement : MonoBehaviour
         if (isEasy == true)
         {
             moveSpeed = 8;
+            Debug.Log("fast movement");
         }
 
         if (isNormal == true)
         {
             moveSpeed = 6;
+            Debug.Log("normal movement");
         }
 
         if (isHard == true)
         {
             moveSpeed = 4;
+            Debug.Log("slow movement");
         }
     }
 

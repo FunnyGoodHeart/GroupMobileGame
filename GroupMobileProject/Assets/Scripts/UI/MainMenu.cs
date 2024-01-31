@@ -10,9 +10,9 @@ public class MainMenu : MonoBehaviour
     // Play or Quit Options
     [SerializeField] Canvas menuOptions;
     // Difficulty Options
-    bool isEasy = false;
-    bool isNormal = false;
-    bool isHard = false;
+    public bool isEasy = false;
+    public bool isNormal = false;
+    public bool isHard = false;
 
     private void Start()
     {
@@ -35,18 +35,21 @@ public class MainMenu : MonoBehaviour
     {
         isEasy = true;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        Debug.Log("easy");
     }
 
     public void Normal()
     {
         isNormal = true;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        Debug.Log("normal");
     }
 
     public void Hard()
     {
         isHard = true;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        Debug.Log("hard");
     }
 
     public bool IsEasy()
