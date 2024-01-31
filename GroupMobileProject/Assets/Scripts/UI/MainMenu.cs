@@ -42,14 +42,14 @@ public class MainMenu : MonoBehaviour
     public void Normal()
     {
         isNormal = true;
-        SceneManager.LoadScene(1);
+        //SceneManager.LoadScene(1); Change scene number once all levels are added
         Debug.Log("normal");
     }
 
     public void Hard()
     {
         isHard = true;
-        SceneManager.LoadScene(1);
+        //SceneManager.LoadScene(1); Change scene number once all levels are added
         Debug.Log("hard");
     }
 }
