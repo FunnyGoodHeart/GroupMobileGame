@@ -94,6 +94,7 @@ public class PlayerMovement : MonoBehaviour
         if (collider.IsTouchingLayers(LayerMask.GetMask("Ground")))
         {
             rb2d.AddForce(new Vector2(0, 20 * jumpForce));
+            myAnimator.Play("JumpWithGun", -1, 0f);
         }
     }
 

@@ -240,7 +240,7 @@ Transform:
   m_GameObject: {fileID: 173901954}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 92.53, y: 0.28, z: -10}
+  m_LocalPosition: {x: 1.92, y: -0.43, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -413,7 +413,7 @@ GameObject:
   - component: {fileID: 1094411822}
   - component: {fileID: 1094411821}
   - component: {fileID: 1094411823}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tilemap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -51035,7 +51035,7 @@ MonoBehaviour:
   jumpForceMax: 10
   jumpInterval: 0.5
   chasePlayerActive: 1
-  playerTransform: {fileID: 0}
+  playerTransform: {fileID: 1660594321}
   chaseRange: 5
   patrolRange: 10
 --- !u!58 &1165913501
@@ -51186,7 +51186,7 @@ MonoBehaviour:
   jumpForceMax: 10
   jumpInterval: 0.5
   chasePlayerActive: 1
-  playerTransform: {fileID: 0}
+  playerTransform: {fileID: 1660594321}
   chaseRange: 5
   patrolRange: 10
 --- !u!58 &1348437331
@@ -51612,6 +51612,9 @@ MonoBehaviour:
   isTopDown: 0
   allowKeyControls: 1
   jumpForce: 15
+  isEasy: {fileID: 0}
+  isNormal: {fileID: 0}
+  isHard: {fileID: 0}
   mobileCanvas: {fileID: 0}
 --- !u!114 &1660594319
 MonoBehaviour:
