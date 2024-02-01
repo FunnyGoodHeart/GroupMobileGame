@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class enemyShooting : MonoBehaviour
 {
+    [Header("enemyTypes")]
+    [SerializeField] bool isCatus = false;
     [Header("Setup")]
     [SerializeField] bool predictiveShoot = true;
     [SerializeField] bool shootTowardsPlayer = false;
@@ -11,37 +13,33 @@ public class enemyShooting : MonoBehaviour
     [Header("connections")]
     [SerializeField] GameObject prefab;
     [SerializeField] GameObject target;
-    [SerializeField] AudioClip enemyShootSound;
+    [SerializeField] Transform targetTransform;
+    //[SerializeField] AudioClip enemyShootSound;
     [Header("Bullet Settings")]
     [SerializeField] float bulletLifetime = 2;
     [SerializeField] float shootDelay = 0.5f;
     [SerializeField] float shootRange = 7f;
     [SerializeField] float bulletSpeed = 2f;
     [SerializeField] float predictiveLead = 1;
-
+    [SerializeField] int bulletAmmount = 10;
     [Header("test")]
-    [SerializeField] float radius = 2f;
-    [SerializeField] float speed = 5f;
-    [SerializeField] float shotsPerSecond = 2f;
-    [SerializeField] bool clockwise = true;
-
     
+    
+    //ect
     Animator myAnimator;
     float timer = 0f;
     float timer2 = 0f;
-    // Start is called before the first frame update
     void Start()
     {
         
         myAnimator = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         timer += Time.deltaTime;
         timer2 += Time.deltaTime;
-        if(timer >= 1f / shotsPerSecond)
+        if(timer >= 10f / shotsPerSecond)
         {
             SpawnBullet();
             timer2 = 0f;
@@ -57,25 +55,22 @@ public class enemyShooting : MonoBehaviour
                 shootDirection += playerVel * predictiveLead;
             }
             timer = 0;
-            myAnimator.Play("catusAttackAnimation", -1, 0f);
+            if (isCatus)
+            {
+                myAnimator.Play("catusAttackAnimation", -1, 0f);
+            }
             shootDirection.Normalize();
-            Camera.main.GetComponent<AudioSource>().PlayOneShot(enemyShootSound);
+            //Camera.main.GetComponent<AudioSource>().PlayOneShot(enemyShootSound);
             GameObject bullet = Instantiate(prefab, transform.position, Quaternion.identity);
             bullet.transform.up = shootDirection;
             bullet.GetComponent<Rigidbody2D>().velocity = shootDirection * bulletSpeed;
             Destroy(bullet, bulletLifetime);
         }
     }
+    
     void SpawnBullet()
     {
-        float angle = timer2 * shotsPerSecond * 360f;
-        if (!clockwise) angle = -angle;
-
-        float radians = Mathf.Deg2Rad * angle;
-        Vector3 offset = new Vector3(Mathf.Cos(radians) * radius, Mathf.Sin(radians) * radius);
-
-        GameObject bullet = Instantiate(prefab, transform.position + offset, Quaternion.identity);
-        bullet.GetComponent<Rigidbody2D>().velocity = (clockwise ? Vector3.right : Vector3.left) * speed;
+        
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
