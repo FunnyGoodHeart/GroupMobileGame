@@ -100,6 +100,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        // Disables movement when falling to prevent sticking to walls (as long as player touched the trigger)
         if (collision.gameObject.tag == "FallDeath")
         {
             moveSpeed = 0;
