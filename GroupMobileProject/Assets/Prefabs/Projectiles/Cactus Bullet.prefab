@@ -10,12 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 6362539242503058739}
   - component: {fileID: 4467071217413370913}
+  - component: {fileID: 2474399759901259464}
   - component: {fileID: 2677670402059386163}
   - component: {fileID: 4664326334174964090}
-  - component: {fileID: 436896412612006282}
   m_Layer: 0
-  m_Name: PL Player Bullet
-  m_TagString: Player Bullet
+  m_Name: Cactus Bullet
+  m_TagString: Enemy Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -76,8 +76,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 148136939, guid: f21fe830ae72e5d4f81ed77caad6e386, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 2127512432, guid: f21fe830ae72e5d4f81ed77caad6e386, type: 3}
+  m_Color: {r: 1, g: 0.9527312, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -87,6 +87,63 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!60 &2474399759901259464
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8812328700372754122}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.1875, y: 0.09375}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.063043594, y: 0.047451973}
+      - {x: -0.0630517, y: 0.016140461}
+      - {x: -0.09440327, y: 0.016552448}
+      - {x: -0.094092846, y: -0.015650272}
+      - {x: -0.06301117, y: -0.016034126}
+      - {x: -0.063038826, y: -0.04704666}
+      - {x: -0.031101704, y: -0.046894073}
+      - {x: -0.031162739, y: -0.015769958}
+      - {x: 0.09421635, y: -0.015386105}
+      - {x: 0.09440327, y: 0.015572548}
+      - {x: -0.03095293, y: 0.016062737}
+      - {x: -0.03091383, y: 0.047528267}
+  m_UseDelaunayMesh: 0
 --- !u!50 &2677670402059386163
 Rigidbody2D:
   serializedVersion: 4
@@ -126,56 +183,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27208d96f43e966449363eb9fb87e71e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerUsed: 1
-  enemyUsed: 0
---- !u!60 &436896412612006282
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8812328700372754122}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.1875, y: 0.0625}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: -0.064032555, y: 0.03166437}
-      - {x: -0.06397486, y: 0.0014648438}
-      - {x: -0.09375, y: 0.0015325546}
-      - {x: -0.09375, y: -0.03125}
-      - {x: 0.09375, y: -0.03125}
-      - {x: 0.09375, y: 0.03125}
-  m_UseDelaunayMesh: 0
+  playerUsed: 0
+  enemyUsed: 1
