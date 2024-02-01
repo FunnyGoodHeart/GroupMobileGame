@@ -10,9 +10,9 @@ public class MainMenu : MonoBehaviour
     // Play or Quit Options
     [SerializeField] Canvas menuOptions;
     // Difficulty Options
-    bool isEasy = false;
-    bool isNormal = false;
-    bool isHard = false;
+    public bool isEasy = false;
+    public bool isNormal = false;
+    public bool isHard = false;
 
     private void Start()
     {
@@ -31,18 +31,25 @@ public class MainMenu : MonoBehaviour
         Application.Quit();
     }
 
+    // Activates difficulty 
     public void Easy()
     {
         isEasy = true;
+        SceneManager.LoadScene(1);
+        Debug.Log("easy");
     }
 
     public void Normal()
     {
         isNormal = true;
+        //SceneManager.LoadScene(1); Change scene number once all levels are added
+        Debug.Log("normal");
     }
 
     public void Hard()
     {
         isHard = true;
+        //SceneManager.LoadScene(1); Change scene number once all levels are added
+        Debug.Log("hard");
     }
 }

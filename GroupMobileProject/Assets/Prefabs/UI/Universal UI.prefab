@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5884031557561947900}
   - component: {fileID: 4362754926623856873}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Ammo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -69,8 +69,8 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: fdd4a03d5b93d0d42a561740724e2d10, type: 2}
+  m_sharedMaterial: {fileID: 1768257326980209779, guid: fdd4a03d5b93d0d42a561740724e2d10, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -102,7 +102,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -148,6 +148,7 @@ GameObject:
   - component: {fileID: 3925896110856548545}
   - component: {fileID: 3974237827520628764}
   - component: {fileID: 33063166688848177}
+  - component: {fileID: 7560149869086118665}
   m_Layer: 5
   m_Name: Universal UI
   m_TagString: Untagged
@@ -239,6 +240,14 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!222 &7560149869086118665
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3396280934946328463}
+  m_CullTransparentMesh: 1
 --- !u!1 &6715631883891149907
 GameObject:
   m_ObjectHideFlags: 0
@@ -251,7 +260,7 @@ GameObject:
   - component: {fileID: 7089553600526603131}
   - component: {fileID: 3010980782739475270}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Health
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -304,10 +313,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Health: 10'
+  m_text: 'Health: '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: fdd4a03d5b93d0d42a561740724e2d10, type: 2}
+  m_sharedMaterial: {fileID: 1768257326980209779, guid: fdd4a03d5b93d0d42a561740724e2d10, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -339,7 +348,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0

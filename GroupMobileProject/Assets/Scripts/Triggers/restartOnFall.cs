@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class restartOnFall : MonoBehaviour
 {
     [SerializeField] float loadDelay = 1f;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "FallDeath")
@@ -16,6 +17,6 @@ public class restartOnFall : MonoBehaviour
 
     void ReloadScene()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
