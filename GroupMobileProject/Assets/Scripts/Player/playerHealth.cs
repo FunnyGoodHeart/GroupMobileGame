@@ -27,6 +27,7 @@ public class playerHealth : MonoBehaviour
             healthText.text = "Health: " + plHealth;
             if(plHealth <= 0)
             {
+                playerAnimator.SetTrigger("isDead");
                 Invoke("ReloadScene", loadDelay);
             }
         }
