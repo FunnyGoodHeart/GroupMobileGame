@@ -38,12 +38,6 @@ public class enemyShooting : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
-        timer2 += Time.deltaTime;
-        if(timer >= 10f / shotsPerSecond)
-        {
-            SpawnBullet();
-            timer2 = 0f;
-        }
         Vector3 playerPosition = target.transform.position;
         Vector3 shootDirection = playerPosition - transform.position;
         if (shootDirection.magnitude < shootRange && timer >= shootDelay && shootTowardsPlayer)
