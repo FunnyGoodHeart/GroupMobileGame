@@ -10,10 +10,14 @@ public class playerHealth : MonoBehaviour
     [SerializeField] int loadDelay = 1;
     [SerializeField] attackTumbleweed atkTums;
     [SerializeField] TextMeshProUGUI healthText;
+    Animator playerAnimator;
+    Rigidbody2D playerRB;
 
     void Start()
     {
         healthText.text = "Health: " + plHealth;
+        playerAnimator = GetComponent<Animator>(); 
+        playerRB = GetComponent<Rigidbody2D>();
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -40,6 +44,7 @@ public class playerHealth : MonoBehaviour
             healthText.text = "Health: " + plHealth;
             if (plHealth <= 0)
             {
+                playerAnimator.SetTrigger("isDead");
                 Invoke("ReloadScene", loadDelay);
             }
         }
