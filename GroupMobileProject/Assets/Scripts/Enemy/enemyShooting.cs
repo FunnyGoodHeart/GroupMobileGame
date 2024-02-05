@@ -11,19 +11,20 @@ public class enemyShooting : MonoBehaviour
     [SerializeField] bool shootTowardsPlayer = false;
     [SerializeField] bool shootRandomly = true;
     [Header("connections")]
-    [SerializeField] GameObject prefab;
+    [SerializeField] GameObject bulletPrefab;
     [SerializeField] GameObject target;
     [SerializeField] Transform targetTransform;
     [SerializeField] AudioClip enemyShootSound;
     [Header("Bullet Settings")]
     [SerializeField] float bulletLifetime = 2;
-    [SerializeField] float shootDelay = 0.5f;
+    [SerializeField] float fireRate = 0.5f;
     [SerializeField] float shootRange = 7f;
     [SerializeField] float bulletSpeed = 2f;
     [SerializeField] float predictiveLead = 1;
     [SerializeField] int bulletAmmount = 10;
     [Header("test")]
-    
+    int numBullets;
+    float nextFireTime;
     
     //ect
     Animator myAnimator;
@@ -31,7 +32,7 @@ public class enemyShooting : MonoBehaviour
     float timer2 = 0f;
     void Start()
     {
-        
+        targetTransform = GameObject.FindGameObjectWithTag("Player").transform;
         myAnimator = GetComponent<Animator>();
     }
 
@@ -40,13 +41,18 @@ public class enemyShooting : MonoBehaviour
         timer += Time.deltaTime;
         Vector3 playerPosition = target.transform.position;
         Vector3 shootDirection = playerPosition - transform.position;
-        if (shootDirection.magnitude < shootRange && timer >= shootDelay && shootTowardsPlayer)
+        if (shootDirection.magnitude < shootRange && timer >= fireRate && shootTowardsPlayer)
         {
             //Enemy predicts where to shoot
             if (predictiveShoot)
             {
                 Vector3 playerVel = target.GetComponent<Rigidbody2D>().velocity;
                 shootDirection += playerVel * predictiveLead;
+            }
+            else if(Time.time > nextFireTime && shootRandomly)
+            {
+                ShootBullets();
+                nextFireTime = Time.time + fireRate;
             }
             timer = 0;
             if (isCatus)
@@ -55,16 +61,21 @@ public class enemyShooting : MonoBehaviour
             }
             shootDirection.Normalize();
             //Camera.main.GetComponent<AudioSource>().PlayOneShot(enemyShootSound);
-            GameObject bullet = Instantiate(prefab, transform.position, Quaternion.identity);
+            GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
             bullet.transform.up = shootDirection;
             bullet.GetComponent<Rigidbody2D>().velocity = shootDirection * bulletSpeed;
             Destroy(bullet, bulletLifetime);
         }
     }
-    
-    void SpawnBullet()
+
+    void ShootBullets ()
     {
-        
+        float angleStep = 360f / numBullets;
+        float currentAngle = transform.eulerAngles.z;
+        for (int i = 0; i < numBullets; i++)
+        {
+
+        }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
