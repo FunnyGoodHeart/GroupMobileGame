@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using Unity.VisualScripting;
 
 public class playerHealth : MonoBehaviour
 {
@@ -27,6 +28,7 @@ public class playerHealth : MonoBehaviour
             healthText.text = "Health: " + plHealth;
             if(plHealth <= 0)
             {
+                Destroy(playerRB);
                 playerAnimator.SetTrigger("isDead");
                 Invoke("ReloadScene", loadDelay);
             }
@@ -45,6 +47,7 @@ public class playerHealth : MonoBehaviour
             healthText.text = "Health: " + plHealth;
             if (plHealth <= 0)
             {
+                Destroy(playerRB);
                 playerAnimator.SetTrigger("isDead");
                 Invoke("ReloadScene", loadDelay);
             }
