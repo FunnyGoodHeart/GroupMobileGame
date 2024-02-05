@@ -14,7 +14,7 @@ public class playerAttack : MonoBehaviour
     [SerializeField] int bulletCount = 60;
     [SerializeField] bool playerShoot = true;
     [SerializeField] bool mouseShoot = true;
-    [Header("Insert Text, UI and Audio here")]
+    [Header("Insert Text and Audio here")]
     [SerializeField] AudioClip shootingSound;
     [SerializeField] TextMeshProUGUI ammoCount;
     [SerializeField] GameObject playerBullet;

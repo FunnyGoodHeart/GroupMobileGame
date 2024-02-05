@@ -14,7 +14,7 @@ public class enemyShooting : MonoBehaviour
     [SerializeField] GameObject prefab;
     [SerializeField] GameObject target;
     [SerializeField] Transform targetTransform;
-    //[SerializeField] AudioClip enemyShootSound;
+    [SerializeField] AudioClip enemyShootSound;
     [Header("Bullet Settings")]
     [SerializeField] float bulletLifetime = 2;
     [SerializeField] float shootDelay = 0.5f;
