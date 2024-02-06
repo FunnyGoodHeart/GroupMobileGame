@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class playerAttack : MonoBehaviour
@@ -17,6 +18,7 @@ public class playerAttack : MonoBehaviour
     [Header("Insert Text and Audio here")]
     [SerializeField] AudioClip shootingSound;
     [SerializeField] TextMeshProUGUI ammoCount;
+    [SerializeField] Canvas pauseMenu;
     [SerializeField] GameObject playerBullet;
     int maxBulletCount = 120;
     float x = 2;
@@ -75,6 +77,11 @@ public class playerAttack : MonoBehaviour
         else if (bulletCount > 0)
         {
             playerShoot = true;
+        }
+
+        if (pauseMenu.enabled == true)
+        {
+            playerShoot = false;
         }
 
         // Allows you to shoot with Mouse
