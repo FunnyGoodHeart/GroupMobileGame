@@ -79,6 +79,7 @@ public class playerAttack : MonoBehaviour
             playerShoot = true;
         }
 
+        // If pause menu is active then you can't shoot
         if (pauseMenu.enabled == true)
         {
             playerShoot = false;
