@@ -100,7 +100,8 @@ public class PlayerMovement : MonoBehaviour
         // Disables movement when falling to prevent sticking to walls (as long as player touched the trigger)
         if (collision.gameObject.tag == "FallDeath")
         {
-            myAnimator.SetTrigger("isFalling");
+            //myAnimator.SetTrigger("isFalling");
+            myAnimator.Play("FallingWithoutHat");
             moveSpeed = 0;
             jumpForce = 0;
             mobileCanvas.enabled = false;
