@@ -9,6 +9,8 @@ public class playerHealth : MonoBehaviour
 {
     [SerializeField] int plHealth = 10;
     [SerializeField] int loadDelay = 1;
+    [SerializeField] AudioClip explosion;
+    [SerializeField] AudioClip tumbleweedCollision;
     [SerializeField] attackTumbleweed atkTums;
     [SerializeField] TextMeshProUGUI healthText;
     Animator playerAnimator;
@@ -26,10 +28,12 @@ public class playerHealth : MonoBehaviour
         {
             plHealth -= atkTums.atkTumbleweed;
             healthText.text = "Health: " + plHealth;
+            Camera.main.GetComponent<AudioSource>().PlayOneShot(tumbleweedCollision);
             if(plHealth <= 0)
             {
                 Destroy(playerRB);
-                playerAnimator.SetTrigger("isDead");
+                playerAnimator.Play("DeathAnimation");
+                Camera.main.GetComponent<AudioSource>().PlayOneShot(explosion);
                 Invoke("ReloadScene", loadDelay);
             }
         }
@@ -45,10 +49,12 @@ public class playerHealth : MonoBehaviour
         {
             plHealth -= atkTums.atkTumbleweed;
             healthText.text = "Health: " + plHealth;
+            Camera.main.GetComponent<AudioSource>().PlayOneShot(tumbleweedCollision);
             if (plHealth <= 0)
             {
                 Destroy(playerRB);
-                playerAnimator.SetTrigger("isDead");
+                playerAnimator.Play("DeathAnimation");
+                Camera.main.GetComponent<AudioSource>().PlayOneShot(explosion);
                 Invoke("ReloadScene", loadDelay);
             }
         }

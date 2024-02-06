@@ -1320,8 +1320,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bf154c793cce4845a06e7f4acd276dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  plHealth: 30
+  plHealth: 3
   loadDelay: 1
+  explosion: {fileID: 8300000, guid: 4c8c0daf369552d4eb8296526856e40e, type: 3}
+  tumbleweedCollision: {fileID: 0}
   atkTums: {fileID: 1625957991}
   healthText: {fileID: 1022666354}
 --- !u!61 &534384209
