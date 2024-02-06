@@ -11,6 +11,7 @@ TagManager:
   - Max Ammo
   - Ammo Crate
   - FallDeath
+  - TooHigh
   layers:
   - Default
   - TransparentFX
