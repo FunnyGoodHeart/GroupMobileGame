@@ -407,21 +407,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31f0877833cbecb42be8b0cb2890b6da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isCatus: 1
   predictiveShoot: 1
   shootTowardsPlayer: 0
   shootRandomly: 1
   prefab: {fileID: 8812328700372754122, guid: 307003ad830abbb42917cb000091f51a, type: 3}
   target: {fileID: 803110385}
-  enemyShootSound: {fileID: 0}
+  targetTransform: {fileID: 1660594321}
   bulletLifetime: 2
   shootDelay: 0.5
   shootRange: 7
   bulletSpeed: 2
   predictiveLead: 1
-  radius: 2
-  speed: 5
-  shotsPerSecond: 2
-  clockwise: 1
+  bulletAmmount: 10
 --- !u!95 &832212665
 Animator:
   serializedVersion: 5
@@ -472,7 +470,7 @@ EdgeCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -556,7 +554,7 @@ Transform:
   m_GameObject: {fileID: 832212663}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 44.24, y: -4.03, z: 0}
+  m_LocalPosition: {x: 44.04, y: -4.06, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -30464,7 +30462,7 @@ SceneRoots:
   - {fileID: 1165913503}
   - {fileID: 1754331024}
   - {fileID: 1736613309}
-  - {fileID: 1849941962747331961}
   - {fileID: 1931863123}
   - {fileID: 1919001596}
   - {fileID: 832212668}
+  - {fileID: 1849941962747331961}

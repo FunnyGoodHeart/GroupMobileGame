@@ -6,10 +6,8 @@ public class HealthTumbleweed : MonoBehaviour
 {
     [SerializeField] int tumsHealths = 10;
     [SerializeField] playerAttack plAtk;
-    void Start()
-    {
-        
-    }
+    [SerializeField] bool dropsItem = false;
+    [SerializeField] GameObject itemDropped;
 
     void Update()
     {
@@ -23,6 +21,15 @@ public class HealthTumbleweed : MonoBehaviour
         if(collision.gameObject.tag == "Player Bullet" && plAtk.plTriggerAtk)
         {
             tumsHealths -= plAtk.playerAtk;
+
+            if (tumsHealths <= 0)
+            {
+                if (dropsItem == true)
+                {
+                    GameObject item = Instantiate(itemDropped, transform.position, Quaternion.identity);
+                }
+                Destroy(gameObject);
+            }
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)

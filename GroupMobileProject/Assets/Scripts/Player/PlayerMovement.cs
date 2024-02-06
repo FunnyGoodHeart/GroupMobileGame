@@ -5,20 +5,18 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    Collider2D collider;
-    Rigidbody2D rb2d;
-    [SerializeField] FixedJoystick joystick;
+    [SerializeField] float jumpForce = 5.0f;
     [SerializeField] float moveSpeed = 2;
     [SerializeField] bool isTopDown = true;
     [SerializeField] bool allowKeyControls = true;
-    [SerializeField] float jumpForce = 5.0f;
+    [SerializeField] FixedJoystick joystick;
     [SerializeField] Canvas mobileCanvas;
     [SerializeField] Canvas universalCanvas;
     [SerializeField] Canvas pauseCanvas;
-
+    Collider2D collider;
+    Rigidbody2D rb2d;
     Animator myAnimator;
 
-    // Start is called before the first frame update
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
@@ -38,7 +36,6 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
         Run();
@@ -103,6 +100,7 @@ public class PlayerMovement : MonoBehaviour
         // Disables movement when falling to prevent sticking to walls (as long as player touched the trigger)
         if (collision.gameObject.tag == "FallDeath")
         {
+            myAnimator.SetTrigger("isFalling");
             moveSpeed = 0;
             jumpForce = 0;
             mobileCanvas.enabled = false;

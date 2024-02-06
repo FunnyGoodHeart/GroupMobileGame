@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class playerAttack : MonoBehaviour
@@ -8,14 +9,17 @@ public class playerAttack : MonoBehaviour
     [SerializeField] public int playerAtk= 1;
     [SerializeField] public bool plTriggerAtk = false;
     [SerializeField] public bool plCollisionAtk = true;
-    [SerializeField] TextMeshProUGUI myText;
-    [SerializeField] GameObject prefab;
+    [Header("Bullet Stuff")]
     [SerializeField] float shootSpeed = 10;
     [SerializeField] float bulletLifetime = 2;
-    [SerializeField] bool mouseShoot = true;
     [SerializeField] int bulletCount = 60;
     [SerializeField] bool playerShoot = true;
+    [SerializeField] bool mouseShoot = true;
+    [Header("Insert Text and Audio here")]
     [SerializeField] AudioClip shootingSound;
+    [SerializeField] TextMeshProUGUI ammoCount;
+    [SerializeField] Canvas pauseMenu;
+    [SerializeField] GameObject playerBullet;
     int maxBulletCount = 120;
     float x = 2;
     float y = 0;
@@ -29,12 +33,12 @@ public class playerAttack : MonoBehaviour
         // Picks up Max Ammo 
         if (collision.gameObject.tag == "Max Ammo" && bulletCount < maxBulletCount)
         {
-            bulletCount = 200;
+            bulletCount = maxBulletCount;
             if (bulletCount > maxBulletCount)
             {
                 bulletCount = maxBulletCount;
             }
-            myText.text = "Ammo: " + bulletCount;
+            ammoCount.text = "Ammo: " + bulletCount;
             Destroy(collision.gameObject);
         }
 
@@ -46,7 +50,7 @@ public class playerAttack : MonoBehaviour
             {
                 bulletCount = maxBulletCount;
             }
-            myText.text = "Ammo: " + bulletCount;
+            ammoCount.text = "Ammo: " + bulletCount;
             Destroy(collision.gameObject);
         }
     }
@@ -75,6 +79,12 @@ public class playerAttack : MonoBehaviour
             playerShoot = true;
         }
 
+        // If pause menu is active then you can't shoot
+        if (pauseMenu.enabled == true)
+        {
+            playerShoot = false;
+        }
+
         // Allows you to shoot with Mouse
         if (mouseShoot)
         {
@@ -100,9 +110,9 @@ public class playerAttack : MonoBehaviour
             if (playerShoot)
             {
                 bulletCount--;
-                myText.text = "Ammo: " + bulletCount;
+                ammoCount.text = "Ammo: " + bulletCount;
                 Camera.main.GetComponent<AudioSource>().PlayOneShot(shootingSound);
-                GameObject bullet = Instantiate(prefab, transform.position, Quaternion.identity);
+                GameObject bullet = Instantiate(playerBullet, transform.position, Quaternion.identity);
                 bullet.GetComponent<Rigidbody2D>().velocity = new Vector2(x, y) * shootSpeed;
                 Destroy(bullet, bulletLifetime);
             }
