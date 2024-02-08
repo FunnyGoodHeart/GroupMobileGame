@@ -458,7 +458,7 @@ GameObject:
   - component: {fileID: 162178432}
   m_Layer: 0
   m_Name: Square (21)
-  m_TagString: FallDeath
+  m_TagString: TooHigh
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1315,7 +1315,7 @@ MonoBehaviour:
   jumpForce: 15
   moveSpeed: 8
   isTopDown: 0
-  allowKeyControls: 1
+  allowKeyControls: 0
   joystick: {fileID: 865872316}
   mobileCanvas: {fileID: 1759439081}
   universalCanvas: {fileID: 1209350626}
