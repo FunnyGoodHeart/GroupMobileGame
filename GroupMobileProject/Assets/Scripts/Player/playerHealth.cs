@@ -15,12 +15,14 @@ public class playerHealth : MonoBehaviour
     [SerializeField] TextMeshProUGUI healthText;
     Animator playerAnimator;
     Rigidbody2D playerRB;
+    PlayerMovement playerMove;
 
     void Start()
     {
         healthText.text = "Health: " + plHealth;
         playerAnimator = GetComponent<Animator>(); 
         playerRB = GetComponent<Rigidbody2D>();
+        playerMove = GetComponent<PlayerMovement>();
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -31,17 +33,13 @@ public class playerHealth : MonoBehaviour
             Camera.main.GetComponent<AudioSource>().PlayOneShot(tumbleweedCollision);
             if(plHealth <= 0)
             {
-                Destroy(playerRB);
+                playerMove.enabled = false;
+                playerRB.gravityScale = 0;
                 playerAnimator.Play("DeathAnimation");
                 Camera.main.GetComponent<AudioSource>().PlayOneShot(explosion);
                 Invoke("ReloadScene", loadDelay);
             }
         }
-
-        /*if (collision.gameObject.tag == "Enemy Bullet")
-        {
-            plHealth -= another.script;
-        }*/
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -52,7 +50,8 @@ public class playerHealth : MonoBehaviour
             Camera.main.GetComponent<AudioSource>().PlayOneShot(tumbleweedCollision);
             if (plHealth <= 0)
             {
-                Destroy(playerRB);
+                playerMove.enabled = false;
+                playerRB.gravityScale = 0;
                 playerAnimator.Play("DeathAnimation");
                 Camera.main.GetComponent<AudioSource>().PlayOneShot(explosion);
                 Invoke("ReloadScene", loadDelay);

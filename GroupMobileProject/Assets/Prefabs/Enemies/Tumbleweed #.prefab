@@ -197,6 +197,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tumsHealths: 10
   plAtk: {fileID: 0}
+  dropsItem: 0
+  itemDropped: {fileID: 0}
 --- !u!114 &7005492086960560068
 MonoBehaviour:
   m_ObjectHideFlags: 0
