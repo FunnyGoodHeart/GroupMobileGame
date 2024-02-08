@@ -411,15 +411,15 @@ MonoBehaviour:
   predictiveShoot: 1
   shootTowardsPlayer: 0
   shootRandomly: 1
-  prefab: {fileID: 8812328700372754122, guid: 307003ad830abbb42917cb000091f51a, type: 3}
+  bulletPrefab: {fileID: 8812328700372754122, guid: 307003ad830abbb42917cb000091f51a, type: 3}
   target: {fileID: 803110385}
   targetTransform: {fileID: 1660594321}
+  enemyShootSound: {fileID: 0}
   bulletLifetime: 2
-  shootDelay: 0.5
+  fireRate: 0.5
   shootRange: 7
   bulletSpeed: 2
   predictiveLead: 1
-  bulletAmmount: 10
 --- !u!95 &832212665
 Animator:
   serializedVersion: 5

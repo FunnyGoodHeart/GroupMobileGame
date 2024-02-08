@@ -21,10 +21,9 @@ public class enemyShooting : MonoBehaviour
     [SerializeField] float shootRange = 7f;
     [SerializeField] float bulletSpeed = 2f;
     [SerializeField] float predictiveLead = 1;
-    [SerializeField] int bulletAmmount = 10;
     [Header("test")]
     int numBullets;
-    float nextFireTime;
+    float nextFireTime = 3;
     
     //ect
     Animator myAnimator;
@@ -38,6 +37,8 @@ public class enemyShooting : MonoBehaviour
 
     void Update()
     {
+        
+        timer2 += Time.deltaTime;
         timer += Time.deltaTime;
         Vector3 playerPosition = target.transform.position;
         Vector3 shootDirection = playerPosition - transform.position;
@@ -49,14 +50,10 @@ public class enemyShooting : MonoBehaviour
                 Vector3 playerVel = target.GetComponent<Rigidbody2D>().velocity;
                 shootDirection += playerVel * predictiveLead;
             }
-            else if(Time.time > nextFireTime && shootRandomly)
-            {
-                ShootBullets();
-                nextFireTime = Time.time + fireRate;
-            }
             timer = 0;
             if (isCatus)
             {
+                Debug.Log("what?");
                 myAnimator.Play("catusAttackAnimation", -1, 0f);
             }
             shootDirection.Normalize();
@@ -66,16 +63,33 @@ public class enemyShooting : MonoBehaviour
             bullet.GetComponent<Rigidbody2D>().velocity = shootDirection * bulletSpeed;
             Destroy(bullet, bulletLifetime);
         }
+        else if (timer2 > nextFireTime && shootRandomly)
+        {
+            Debug.Log("step1");
+            ShootBullets();
+            timer2 = 0;
+        }
     }
 
     void ShootBullets ()
     {
+        Debug.Log("step2");
+        timer2 = 0;
         float angleStep = 360f / numBullets;
         float currentAngle = transform.eulerAngles.z;
-        for (int i = 0; i < numBullets; i++)
+        if (isCatus)
         {
-
+            Debug.Log("animation");
+            myAnimator.Play("catusAttackAnimation", -1, 0f);
         }
+        //for (int i =0; i >= numBullets; i++)
+        //{
+            Debug.Log("step3");
+            Vector2 direction = Quaternion.Euler(0, 0, currentAngle) * Vector2.up;
+            GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+            bullet.GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed;
+            currentAngle += angleStep;
+        //}
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

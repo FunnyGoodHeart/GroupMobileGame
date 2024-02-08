@@ -307,6 +307,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 877926338174801584, guid: 150271bb6938ff0489b40209cc3654b9, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 75d37b0fa1aac544a84a19a9bd585827, type: 3}
     - target: {fileID: 1446173311829448365, guid: 150271bb6938ff0489b40209cc3654b9, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -438,19 +442,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4190615930074598394, guid: 55a705e4c7e017e4aafdefc4e8f15102, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 1970.0054
+      value: 1920
       objectReference: {fileID: 0}
     - target: {fileID: 4190615930074598394, guid: 55a705e4c7e017e4aafdefc4e8f15102, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 1037.6875
+      value: 1080
       objectReference: {fileID: 0}
     - target: {fileID: 4190615930074598394, guid: 55a705e4c7e017e4aafdefc4e8f15102, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 25.002686
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4190615930074598394, guid: 55a705e4c7e017e4aafdefc4e8f15102, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 21.156189
+      value: -0.000061035
       objectReference: {fileID: 0}
     - target: {fileID: 5115010364147601862, guid: 55a705e4c7e017e4aafdefc4e8f15102, type: 3}
       propertyPath: m_Pivot.x
@@ -536,6 +540,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 75d37b0fa1aac544a84a19a9bd585827, type: 3}
+    - target: {fileID: 5647029415398046271, guid: 55a705e4c7e017e4aafdefc4e8f15102, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6446512487332441706, guid: 55a705e4c7e017e4aafdefc4e8f15102, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
