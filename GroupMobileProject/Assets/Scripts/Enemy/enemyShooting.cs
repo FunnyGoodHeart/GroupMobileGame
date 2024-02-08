@@ -4,28 +4,30 @@ using UnityEngine;
 
 public class enemyShooting : MonoBehaviour
 {
-    [Header("enemyTypes")]
+    [Header("enemyTypes")]      //what kind of charcter is it? (this is for animations)
     [SerializeField] bool isCatus = false;
-    [Header("Setup")]
+    [Header("Setup")]       //what kind of shoot setup for the enemy?
     [SerializeField] bool predictiveShoot = true;
     [SerializeField] bool shootTowardsPlayer = false;
     [SerializeField] bool shootRandomly = true;
-    [Header("connections")]
+    [Header("connections")]     //prefabs and the player target
     [SerializeField] GameObject bulletPrefab;
     [SerializeField] GameObject target;
     [SerializeField] Transform targetTransform;
     [SerializeField] AudioClip enemyShootSound;
-    [Header("Bullet Settings")]
-    [SerializeField] float bulletLifetime = 2;
-    [SerializeField] float fireRate = 0.5f;
+    [Header("Bullet Settings")]     //some are for only random shoot/target player and some other are for both
+    [SerializeField] float fireRate = 4f;
     [SerializeField] float shootRange = 7f;
     [SerializeField] float bulletSpeed = 2f;
     [SerializeField] float predictiveLead = 1;
-    [Header("test")]
-    int numBullets;
-    float nextFireTime = 3;
-    
+    [SerializeField] float rotationspeed = 180f;    
+    [SerializeField] int bulletsPerRotation = 8;
+
+    //bullet lifetime is in the bullet prefab (script called BulletDestroy)
+
     //ect
+    float nextFireTime;
+    float currentAngle;
     Animator myAnimator;
     float timer = 0f;
     float timer2 = 0f;
@@ -33,6 +35,7 @@ public class enemyShooting : MonoBehaviour
     {
         targetTransform = GameObject.FindGameObjectWithTag("Player").transform;
         myAnimator = GetComponent<Animator>();
+        nextFireTime = Time.time + fireRate;
     }
 
     void Update()
@@ -54,42 +57,40 @@ public class enemyShooting : MonoBehaviour
             if (isCatus)
             {
                 Debug.Log("what?");
-                myAnimator.Play("catusAttackAnimation", -1, 0f);
+                myAnimator.SetTrigger("isShooting");
             }
             shootDirection.Normalize();
             //Camera.main.GetComponent<AudioSource>().PlayOneShot(enemyShootSound);
             GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
             bullet.transform.up = shootDirection;
             bullet.GetComponent<Rigidbody2D>().velocity = shootDirection * bulletSpeed;
-            Destroy(bullet, bulletLifetime);
         }
-        else if (timer2 > nextFireTime && shootRandomly)
+        else if (Time.time >= nextFireTime && shootRandomly)
         {
-            Debug.Log("step1");
-            ShootBullets();
-            timer2 = 0;
+            Debug.Log("step 1");
+            currentAngle = 0f;
+            FireBullet();
+            nextFireTime = Time.time + fireRate;
         }
     }
 
-    void ShootBullets ()
+    void FireBullet ()
     {
-        Debug.Log("step2");
-        timer2 = 0;
-        float angleStep = 360f / numBullets;
-        float currentAngle = transform.eulerAngles.z;
+        Debug.Log("Step 2");
         if (isCatus)
         {
-            Debug.Log("animation");
+            Debug.Log("antmation");
             myAnimator.Play("catusAttackAnimation", -1, 0f);
         }
-        //for (int i =0; i >= numBullets; i++)
-        //{
-            Debug.Log("step3");
-            Vector2 direction = Quaternion.Euler(0, 0, currentAngle) * Vector2.up;
-            GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
-            bullet.GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed;
-            currentAngle += angleStep;
-        //}
+        for (int i = 0; i < bulletsPerRotation; i++)
+        {
+            Debug.Log("Fire in the hole");
+            float angleRadians = currentAngle * Mathf.Deg2Rad;
+            Vector2 direction = new Vector2(Mathf.Cos(angleRadians), Mathf.Sin(angleRadians));
+            GameObject projectile = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+            projectile.GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed;
+            currentAngle += 360f / bulletsPerRotation;
+        }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
