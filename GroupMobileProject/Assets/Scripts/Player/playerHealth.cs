@@ -60,8 +60,8 @@ public class playerHealth : MonoBehaviour
         }
     }
 
-    void ReloadScene()
+    public void ReloadScene()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
