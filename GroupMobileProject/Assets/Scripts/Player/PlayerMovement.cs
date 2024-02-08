@@ -107,5 +107,12 @@ public class PlayerMovement : MonoBehaviour
             universalCanvas.enabled = false;
             pauseCanvas.enabled = false;
         }
+
+        if (collision.gameObject.tag == "TooHigh")
+        {
+            Debug.Log("please fall");
+            moveSpeed = 0;
+            jumpForce = 0;
+        }
     }
 }
