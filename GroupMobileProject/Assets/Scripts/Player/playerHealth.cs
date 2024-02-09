@@ -23,6 +23,7 @@ public class playerHealth : MonoBehaviour
         playerAnimator = GetComponent<Animator>(); 
         playerRB = GetComponent<Rigidbody2D>();
         playerMove = GetComponent<PlayerMovement>();
+
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -33,12 +34,7 @@ public class playerHealth : MonoBehaviour
             Camera.main.GetComponent<AudioSource>().PlayOneShot(tumbleweedCollision);
             if(plHealth <= 0)
             {
-                playerMove.enabled = false;
-                playerRB.gravityScale = 0;
-                playerRB.velocity = Vector3.zero;
-                playerAnimator.Play("DeathAnimation");
-                Camera.main.GetComponent<AudioSource>().PlayOneShot(explosion);
-                Invoke("ReloadScene", loadDelay);
+                isDying();
             }
         }
     }
@@ -51,12 +47,7 @@ public class playerHealth : MonoBehaviour
             Camera.main.GetComponent<AudioSource>().PlayOneShot(tumbleweedCollision);
             if (plHealth <= 0)
             {
-                playerMove.enabled = false;
-                playerRB.gravityScale = 0;
-                playerRB.velocity = Vector3.zero;
-                playerAnimator.Play("DeathAnimation");
-                Camera.main.GetComponent<AudioSource>().PlayOneShot(explosion);
-                Invoke("ReloadScene", loadDelay);
+                isDying();
             }
         }
     }
@@ -64,5 +55,15 @@ public class playerHealth : MonoBehaviour
     public void ReloadScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    private void isDying()
+    {
+        playerMove.enabled = false;
+        playerRB.gravityScale = 0;
+        playerRB.velocity = Vector3.zero;
+        playerAnimator.Play("DeathAnimation");
+        Camera.main.GetComponent<AudioSource>().PlayOneShot(explosion);
+        Invoke("ReloadScene", loadDelay);
     }
 }
