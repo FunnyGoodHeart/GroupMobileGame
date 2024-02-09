@@ -13,9 +13,14 @@ public class playerHealth : MonoBehaviour
     [SerializeField] AudioClip tumbleweedCollision;
     [SerializeField] attackTumbleweed atkTums;
     [SerializeField] TextMeshProUGUI healthText;
+    [SerializeField] GameObject tumbleweedParent; //connect parent game object to these
+    [SerializeField] GameObject catusParent;//same here
     Animator playerAnimator;
     Rigidbody2D playerRB;
     PlayerMovement playerMove;
+    attackTumbleweed atkTumble;
+    attackTumbleweed atkCatus;
+
 
     void Start()
     {
@@ -23,32 +28,34 @@ public class playerHealth : MonoBehaviour
         playerAnimator = GetComponent<Animator>(); 
         playerRB = GetComponent<Rigidbody2D>();
         playerMove = GetComponent<PlayerMovement>();
+        atkTumble = tumbleweedParent.GetComponent<attackTumbleweed>();
+        atkCatus = catusParent.GetComponent<attackTumbleweed>();
 
     }
+    private void Update()
+    {
+        if (plHealth <= 0)
+        {
+            isDying();
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "TumbleWeed" && atkTums.tumsTriggerAtk)
+        if(collision.gameObject.name == "Catus" && atkCatus.enemyTrigger || collision.gameObject.tag == "Enemy Bullet" && atkCatus.enemyTrigger )
         {
-            plHealth -= atkTums.atkTumbleweed;
+            plHealth -= atkTumble.enemyAtk;
             healthText.text = "Health: " + plHealth;
             Camera.main.GetComponent<AudioSource>().PlayOneShot(tumbleweedCollision);
-            if(plHealth <= 0)
-            {
-                isDying();
-            }
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "TumbleWeed" && atkTums.tumsCollisionAtk)
+        if(collision.gameObject.tag == "TumbleWeed" && atkTumble.enemyCollision)
         {
-            plHealth -= atkTums.atkTumbleweed;
+            plHealth -= atkTumble.enemyAtk;
             healthText.text = "Health: " + plHealth;
-            Camera.main.GetComponent<AudioSource>().PlayOneShot(tumbleweedCollision);
-            if (plHealth <= 0)
-            {
-                isDying();
-            }
+            //Camera.main.GetComponent<AudioSource>().PlayOneShot(tumbleweedCollision);
         }
     }
 
