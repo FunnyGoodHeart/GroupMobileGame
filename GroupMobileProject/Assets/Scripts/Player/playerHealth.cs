@@ -11,11 +11,17 @@ public class playerHealth : MonoBehaviour
     [SerializeField] int loadDelay = 1;
     [SerializeField] AudioClip explosion;
     [SerializeField] AudioClip tumbleweedCollision;
-    [SerializeField] attackTumbleweed atkTums;
     [SerializeField] TextMeshProUGUI healthText;
+    [SerializeField] GameObject tumbleweedParet; //connect the parent that is holding the enemy type
+    [SerializeField] GameObject catusParent; //same here
+
     Animator playerAnimator;
     Rigidbody2D playerRB;
     PlayerMovement playerMove;
+    bool collsionAttack;
+    GameObject hit;
+    attackTumbleweed atkTums;
+    attackTumbleweed atkCatus;
 
     void Start()
     {
@@ -23,42 +29,38 @@ public class playerHealth : MonoBehaviour
         playerAnimator = GetComponent<Animator>(); 
         playerRB = GetComponent<Rigidbody2D>();
         playerMove = GetComponent<PlayerMovement>();
+        atkTums = tumbleweedParet.GetComponent<attackTumbleweed>();
+        atkCatus = catusParent.GetComponent<attackTumbleweed>();
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void Update()
     {
-        if(collision.gameObject.tag == "TumbleWeed" && atkTums.tumsTriggerAtk)
+        collsionAttack = atkTums.enemyCollision;
+        if (plHealth <= 0)
         {
-            plHealth -= atkTums.atkTumbleweed;
-            healthText.text = "Health: " + plHealth;
-            Camera.main.GetComponent<AudioSource>().PlayOneShot(tumbleweedCollision);
-            if(plHealth <= 0)
-            {
-                playerMove.enabled = false;
-                playerRB.gravityScale = 0;
-                playerAnimator.Play("DeathAnimation");
-                Camera.main.GetComponent<AudioSource>().PlayOneShot(explosion);
-                Invoke("ReloadScene", loadDelay);
-            }
+            playerMove.enabled = false;
+            playerRB.gravityScale = 0;
+            playerAnimator.Play("DeathAnimation");
+            Camera.main.GetComponent<AudioSource>().PlayOneShot(explosion);
+            Invoke("ReloadScene", loadDelay);
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "TumbleWeed" && atkTums.tumsCollisionAtk)
+        if(collision.gameObject.tag == "TumbleWeed" && collsionAttack)
         {
-            plHealth -= atkTums.atkTumbleweed;
+            plHealth -= atkTums.enemyAtk;
             healthText.text = "Health: " + plHealth;
             Camera.main.GetComponent<AudioSource>().PlayOneShot(tumbleweedCollision);
-            if (plHealth <= 0)
-            {
-                playerMove.enabled = false;
-                playerRB.gravityScale = 0;
-                playerAnimator.Play("DeathAnimation");
-                Camera.main.GetComponent<AudioSource>().PlayOneShot(explosion);
-                Invoke("ReloadScene", loadDelay);
-            }
         }
     }
-
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.name == "catus" && atkCatus.enemyTrigger || collision.gameObject.tag == "Enemy Bullet" && atkCatus.enemyTrigger)
+        {
+            plHealth -= atkCatus.enemyAtk;
+            healthText.text = "Health: " + plHealth;
+        }
+    }
     public void ReloadScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
