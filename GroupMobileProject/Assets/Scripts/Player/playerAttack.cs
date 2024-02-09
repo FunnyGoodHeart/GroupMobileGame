@@ -23,9 +23,11 @@ public class playerAttack : MonoBehaviour
     int maxBulletCount = 120;
     float x = 2;
     float y = 0;
-
+    
     Animator myAnimator;
-
+    float timer;
+    float animationShootinCool = 1;
+    bool justShot = false;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         // Ammo pick up stuff
@@ -64,9 +66,15 @@ public class playerAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        timer += Time.deltaTime;
         float tempX = Input.GetAxisRaw("Horizontal");
         float tempY = Input.GetAxisRaw("Vertical");
-
+        if(timer >= animationShootinCool && justShot)
+        {
+            myAnimator.SetBool("isShooting", false);
+            timer = 0;
+            justShot = false;
+        }
         // If player has no ammo, they can't shoot
         if (bulletCount <= 0)
         {
@@ -115,6 +123,8 @@ public class playerAttack : MonoBehaviour
                 GameObject bullet = Instantiate(playerBullet, transform.position, Quaternion.identity);
                 bullet.GetComponent<Rigidbody2D>().velocity = new Vector2(x, y) * shootSpeed;
                 Destroy(bullet, bulletLifetime);
+                myAnimator.SetBool("isShooting", true);
+                justShot = true;
             }
         }
     }
