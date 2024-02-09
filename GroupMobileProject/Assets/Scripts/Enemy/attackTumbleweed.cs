@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class attackTumbleweed : MonoBehaviour
 {
-    [SerializeField] public int atkTumbleweed = 5;
-    [SerializeField] public bool tumsTriggerAtk = false;
-    [SerializeField] public bool tumsCollisionAtk = true;
+    //change it where it can be changed between enemie groups
+    //put all the same enemies in a parent then
+    //put this script in parent then connect to player
+    [SerializeField] public int enemyAtk = 5;
+    //if the enemy attacks either with collision or trigger
+    [SerializeField] public bool enemyCollision;
+    [SerializeField] public bool enemyTrigger;
 }
