@@ -6,9 +6,24 @@ public class bulletDestroy : MonoBehaviour
 {
     [SerializeField] bool playerUsed;
     [SerializeField] bool enemyUsed;
+    [SerializeField] float experationTime = 3f;
 
+    float dissapearTimer = 0f;
+
+    private void Update()
+    {
+        dissapearTimer += Time.deltaTime;
+        if(dissapearTimer >= experationTime)
+        {
+            Destroy(gameObject);
+        }
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.gameObject.tag == "Ground")
+        {
+            Destroy(gameObject);
+        }
         if (collision.gameObject.tag == "Platforms")
         {
             // Bullet is destroyed when it touches a platform

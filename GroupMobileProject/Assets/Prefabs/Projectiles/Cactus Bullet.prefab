@@ -185,3 +185,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerUsed: 0
   enemyUsed: 1
+  experationTime: 3

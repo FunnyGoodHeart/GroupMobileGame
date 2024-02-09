@@ -2,25 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] float jumpForce = 5.0f;
     [SerializeField] float moveSpeed = 2;
+    [SerializeField] float loadDelay = 1f;
     [SerializeField] bool isTopDown = true;
     [SerializeField] bool allowKeyControls = true;
     [SerializeField] FixedJoystick joystick;
     [SerializeField] Canvas mobileCanvas;
     [SerializeField] Canvas universalCanvas;
     [SerializeField] Canvas pauseCanvas;
-    Collider2D collider;
+    Collider2D playerCollider;
     Rigidbody2D rb2d;
     Animator myAnimator;
 
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
-        collider = GetComponent<Collider2D>();
+        playerCollider = GetComponent<Collider2D>();
         myAnimator = GetComponent<Animator>(); 
         if (isTopDown)
         {
@@ -70,7 +72,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void Jump()
     {
-        if (collider.IsTouchingLayers(LayerMask.GetMask("Ground")))
+        if (playerCollider.IsTouchingLayers(LayerMask.GetMask("Ground")))
         {
             rb2d.AddForce(new Vector2(0, 20 * jumpForce));
             myAnimator.Play("JumpWithGun", -1, 0f);
@@ -107,5 +109,20 @@ public class PlayerMovement : MonoBehaviour
             universalCanvas.enabled = false;
             pauseCanvas.enabled = false;
         }
+
+        // Disables movements when riding a tumbleweed
+        if (collision.gameObject.tag == "TooHigh")
+        {
+            moveSpeed = 0;
+            jumpForce = 0;
+            playerCollider.isTrigger = true;
+            myAnimator.Play("FallingWithoutHat");
+            Invoke("ReloadScene", loadDelay);
+        }
+    }
+
+    void ReloadScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
