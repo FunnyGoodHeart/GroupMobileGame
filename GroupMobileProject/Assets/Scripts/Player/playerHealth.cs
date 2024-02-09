@@ -35,6 +35,7 @@ public class playerHealth : MonoBehaviour
             {
                 playerMove.enabled = false;
                 playerRB.gravityScale = 0;
+                playerRB.velocity = Vector3.zero;
                 playerAnimator.Play("DeathAnimation");
                 Camera.main.GetComponent<AudioSource>().PlayOneShot(explosion);
                 Invoke("ReloadScene", loadDelay);
@@ -52,6 +53,7 @@ public class playerHealth : MonoBehaviour
             {
                 playerMove.enabled = false;
                 playerRB.gravityScale = 0;
+                playerRB.velocity = Vector3.zero;
                 playerAnimator.Play("DeathAnimation");
                 Camera.main.GetComponent<AudioSource>().PlayOneShot(explosion);
                 Invoke("ReloadScene", loadDelay);

@@ -43,7 +43,6 @@ public class PlayerMovement : MonoBehaviour
         Run();
         FlipSprite();
 
-
         Vector2 move = new Vector2(0, 0);
         if (allowKeyControls)
         {
