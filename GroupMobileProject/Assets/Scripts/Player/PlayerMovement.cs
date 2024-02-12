@@ -8,7 +8,6 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] float jumpForce = 5.0f;
     [SerializeField] float moveSpeed = 2;
-    [SerializeField] float loadDelay = 1f;
     [SerializeField] bool isTopDown = true;
     [SerializeField] bool allowKeyControls = true;
     [SerializeField] FixedJoystick joystick;
@@ -99,10 +98,9 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        // Disables movement when falling to prevent sticking to walls (as long as player touched the trigger)
-        if (collision.gameObject.tag == "FallDeath")
+        // Disables movement when falling to prevent sticking to walls (as long as player touched the trigger) and removes HUD
+        if (collision.gameObject.tag == "Falling")
         {
-            playerAnimator.Play("FallingWithoutHat");
             moveSpeed = 0;
             jumpForce = 0;
             mobileCanvas.enabled = false;
@@ -115,14 +113,11 @@ public class PlayerMovement : MonoBehaviour
         {
             moveSpeed = 0;
             jumpForce = 0;
-            playerCollider.isTrigger = true;
-            playerAnimator.Play("FallingWithoutHat");
-            Invoke("ReloadScene", loadDelay);
+            rb2d.velocity = Vector2.zero;
+            playerCollider.isTrigger = true; // Player won't get stuck on cactus but will fall through platforms
+            mobileCanvas.enabled = false;
+            universalCanvas.enabled = false;
+            pauseCanvas.enabled = false;
         }
-    }
-
-    void ReloadScene()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
