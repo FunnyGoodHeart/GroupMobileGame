@@ -5,10 +5,15 @@ using UnityEngine;
 public class HealthTumbleweed : MonoBehaviour
 {
     [SerializeField] int tumsHealths = 10;
-    [SerializeField] playerAttack plAtk;
+     playerAttack plAtk;
     [SerializeField] bool dropsItem = false;
+    [SerializeField] GameObject player;
     [SerializeField] GameObject itemDropped;
 
+    private void Start()
+    {
+        plAtk = player.GetComponent<playerAttack>(); ;
+    }
     void Update()
     {
         if(tumsHealths <= 0)
@@ -20,6 +25,7 @@ public class HealthTumbleweed : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player Bullet" && plAtk.plTriggerAtk)
         {
+            Debug.Log("owch");
             tumsHealths -= plAtk.playerAtk;
 
             if (tumsHealths <= 0)

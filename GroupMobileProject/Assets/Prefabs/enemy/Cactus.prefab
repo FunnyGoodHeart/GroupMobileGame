@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3891472169285841957}
   - component: {fileID: 6396474028268536302}
   - component: {fileID: 2414713077210163209}
+  - component: {fileID: 6485442157016764317}
   m_Layer: 0
   m_Name: Cactus
   m_TagString: Untagged
@@ -186,3 +187,19 @@ MonoBehaviour:
   predictiveLead: 1
   rotationspeed: 180
   bulletsPerRotation: 12
+--- !u!114 &6485442157016764317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5582296874185984758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5245de478721cf459fdbdfd0cbb1f14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tumsHealths: 10
+  dropsItem: 0
+  player: {fileID: 0}
+  itemDropped: {fileID: 8059111699444987106, guid: e11b4ab135eb34b429521e51dba49c22, type: 3}
