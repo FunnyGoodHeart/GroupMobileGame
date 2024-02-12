@@ -17,13 +17,13 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] Canvas pauseCanvas;
     Collider2D playerCollider;
     Rigidbody2D rb2d;
-    Animator myAnimator;
+    Animator playerAnimator;
 
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
         playerCollider = GetComponent<Collider2D>();
-        myAnimator = GetComponent<Animator>(); 
+        playerAnimator = GetComponent<Animator>(); 
         if (isTopDown)
         {
             rb2d.gravityScale = 0;
@@ -75,7 +75,7 @@ public class PlayerMovement : MonoBehaviour
         if (playerCollider.IsTouchingLayers(LayerMask.GetMask("Ground")))
         {
             rb2d.AddForce(new Vector2(0, 20 * jumpForce));
-            myAnimator.Play("JumpWithGun", -1, 0f);
+            playerAnimator.Play("JumpWithGun", -1, 0f);
         }
     }
 
@@ -83,7 +83,7 @@ public class PlayerMovement : MonoBehaviour
     void Run()
     {
         bool playerHasHorizontalSpeed = Mathf.Abs(rb2d.velocity.x) > Mathf.Epsilon;
-        myAnimator.SetBool("isRunning", playerHasHorizontalSpeed);
+        playerAnimator.SetBool("isRunning", playerHasHorizontalSpeed);
     }
 
     // Flips Sprite when the character moves left or right
@@ -102,7 +102,7 @@ public class PlayerMovement : MonoBehaviour
         // Disables movement when falling to prevent sticking to walls (as long as player touched the trigger)
         if (collision.gameObject.tag == "FallDeath")
         {
-            myAnimator.Play("FallingWithoutHat");
+            playerAnimator.Play("FallingWithoutHat");
             moveSpeed = 0;
             jumpForce = 0;
             mobileCanvas.enabled = false;
@@ -116,7 +116,7 @@ public class PlayerMovement : MonoBehaviour
             moveSpeed = 0;
             jumpForce = 0;
             playerCollider.isTrigger = true;
-            myAnimator.Play("FallingWithoutHat");
+            playerAnimator.Play("FallingWithoutHat");
             Invoke("ReloadScene", loadDelay);
         }
     }

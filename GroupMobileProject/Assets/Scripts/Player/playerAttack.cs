@@ -24,7 +24,7 @@ public class playerAttack : MonoBehaviour
     float x = 2;
     float y = 0;
     
-    Animator myAnimator;
+    Animator playerAnimator;
     float timer;
     float animationShootinCool = 1;
     bool justShot = false;
@@ -60,7 +60,7 @@ public class playerAttack : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        myAnimator = GetComponent<Animator>();
+        playerAnimator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -71,7 +71,7 @@ public class playerAttack : MonoBehaviour
         float tempY = Input.GetAxisRaw("Vertical");
         if(timer >= animationShootinCool && justShot)
         {
-            myAnimator.SetBool("isShooting", false);
+            playerAnimator.SetBool("isShooting", false);
             timer = 0;
             justShot = false;
         }
@@ -123,7 +123,7 @@ public class playerAttack : MonoBehaviour
                 GameObject bullet = Instantiate(playerBullet, transform.position, Quaternion.identity);
                 bullet.GetComponent<Rigidbody2D>().velocity = new Vector2(x, y) * shootSpeed;
                 Destroy(bullet, bulletLifetime);
-                myAnimator.SetBool("isShooting", true);
+                playerAnimator.SetBool("isShooting", true);
                 justShot = true;
             }
         }
