@@ -12,6 +12,7 @@ TagManager:
   - Ammo Crate
   - FallDeath
   - TooHigh
+  - Falling
   layers:
   - Default
   - TransparentFX

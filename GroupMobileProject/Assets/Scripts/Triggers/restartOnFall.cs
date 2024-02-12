@@ -22,7 +22,7 @@ public class restartOnFall : MonoBehaviour
 
         if (collision.gameObject.tag == "FallDeath")
         {
-            Invoke("ReloadScene", loadDelay);
+            ReloadScene();
         }
 
         if (collision.gameObject.tag == "TooHigh")
