@@ -75,7 +75,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_Sprite: {fileID: 148136939, guid: f21fe830ae72e5d4f81ed77caad6e386, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -128,6 +128,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerUsed: 1
   enemyUsed: 0
+  experationTime: 3
 --- !u!60 &436896412612006282
 PolygonCollider2D:
   m_ObjectHideFlags: 0
