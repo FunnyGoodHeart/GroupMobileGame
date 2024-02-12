@@ -56,7 +56,7 @@ public class enemyShooting : MonoBehaviour
             timer = 0;
             if (isCatus)
             {
-                Debug.Log("what?");
+                Debug.Log("player towards shoot");
                 myAnimator.SetTrigger("isShooting");
             }
             shootDirection.Normalize();
