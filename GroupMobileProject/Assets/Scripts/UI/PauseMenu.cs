@@ -5,10 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
+	[SerializeField] Canvas pauseMenu;
 	
 	// Update is called once per frame
 	void Update () {
@@ -16,7 +13,7 @@ public class PauseMenu : MonoBehaviour {
 		if (Input.GetKeyDown (KeyCode.Escape) && Time.timeScale == 1) 
 		{
 			Time.timeScale = 0;
-			GetComponent<Canvas>().enabled = true;
+			pauseMenu.enabled = true;
 		}
 		else if(Input.GetKeyDown (KeyCode.Escape) && Time.timeScale == 0)
 		{
@@ -28,7 +25,7 @@ public class PauseMenu : MonoBehaviour {
 	public void Resume()
 	{
 		Time.timeScale = 1;
-		GetComponent<Canvas> ().enabled = false;
+		pauseMenu.enabled = false;
 	}
 
 	public void ExitGame()
@@ -45,6 +42,6 @@ public class PauseMenu : MonoBehaviour {
 	public void LoadPauseMenu()
 	{
         Time.timeScale = 0;
-        GetComponent<Canvas>().enabled = true;
+        pauseMenu.enabled = true;
     }
 }

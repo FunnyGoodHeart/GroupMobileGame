@@ -39,7 +39,7 @@ public class bulletDestroy : MonoBehaviour
             }
         }
 
-        if (collision.gameObject.tag == "TumbleWeed")
+        if (collision.gameObject.tag == "Cactus")
         {
             // Ensures that the bullet doesn't get destroyed when used by an enemy
             if (enemyUsed == false)
