@@ -126,10 +126,10 @@ TextureImporter:
       name: RaccoonSwipeBody_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 3072
-        width: 1024
-        height: 1024
+        x: 190
+        y: 3070
+        width: 644
+        height: 460
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -147,10 +147,10 @@ TextureImporter:
       name: RaccoonSwipeBody_1
       rect:
         serializedVersion: 2
-        x: 1024
-        y: 3072
-        width: 1024
-        height: 1024
+        x: 1154
+        y: 3070
+        width: 704
+        height: 456
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -168,10 +168,10 @@ TextureImporter:
       name: RaccoonSwipeBody_2
       rect:
         serializedVersion: 2
-        x: 2048
-        y: 3072
-        width: 1024
-        height: 1024
+        x: 2146
+        y: 3070
+        width: 740
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -189,10 +189,10 @@ TextureImporter:
       name: RaccoonSwipeBody_3
       rect:
         serializedVersion: 2
-        x: 0
-        y: 2048
-        width: 1024
-        height: 1024
+        x: 98
+        y: 2046
+        width: 740
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -210,10 +210,10 @@ TextureImporter:
       name: RaccoonSwipeBody_4
       rect:
         serializedVersion: 2
-        x: 1024
-        y: 2048
-        width: 1024
-        height: 1024
+        x: 1098
+        y: 2046
+        width: 764
+        height: 516
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -231,10 +231,10 @@ TextureImporter:
       name: RaccoonSwipeBody_5
       rect:
         serializedVersion: 2
-        x: 2048
-        y: 2048
-        width: 1024
-        height: 1024
+        x: 2122
+        y: 2046
+        width: 764
+        height: 516
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -252,10 +252,10 @@ TextureImporter:
       name: RaccoonSwipeBody_6
       rect:
         serializedVersion: 2
-        x: 0
-        y: 1024
-        width: 1024
-        height: 1024
+        x: 130
+        y: 1022
+        width: 704
+        height: 460
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -273,10 +273,10 @@ TextureImporter:
       name: RaccoonSwipeBody_7
       rect:
         serializedVersion: 2
-        x: 1024
-        y: 1024
-        width: 1024
-        height: 1024
+        x: 1254
+        y: 1022
+        width: 604
+        height: 456
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -294,10 +294,10 @@ TextureImporter:
       name: RaccoonSwipeBody_8
       rect:
         serializedVersion: 2
-        x: 2048
-        y: 1024
-        width: 1024
-        height: 1024
+        x: 2286
+        y: 1022
+        width: 596
+        height: 456
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -315,10 +315,10 @@ TextureImporter:
       name: RaccoonSwipeBody_9
       rect:
         serializedVersion: 2
-        x: 0
+        x: 238
         y: 0
-        width: 1024
-        height: 1024
+        width: 596
+        height: 454
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -336,10 +336,10 @@ TextureImporter:
       name: RaccoonSwipeBody_10
       rect:
         serializedVersion: 2
-        x: 1024
+        x: 1262
         y: 0
-        width: 1024
-        height: 1024
+        width: 596
+        height: 454
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -349,27 +349,6 @@ TextureImporter:
       bones: []
       spriteID: 2ecc9e8ca679f414b9953528df53f107
       internalID: 544864690
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RaccoonSwipeBody_11
-      rect:
-        serializedVersion: 2
-        x: 2048
-        y: 0
-        width: 1024
-        height: 1024
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4518393d7d9eeb04abc9021fc3ee538e
-      internalID: 1262669397
       vertices: []
       indices: 
       edges: []
@@ -388,7 +367,6 @@ TextureImporter:
       RaccoonSwipeBody_0: 645613114
       RaccoonSwipeBody_1: -1170034645
       RaccoonSwipeBody_10: 544864690
-      RaccoonSwipeBody_11: 1262669397
       RaccoonSwipeBody_2: 1759536427
       RaccoonSwipeBody_3: 1868365376
       RaccoonSwipeBody_4: -823239699
