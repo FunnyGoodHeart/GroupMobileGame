@@ -55,7 +55,7 @@ public class bossBattleAttack : MonoBehaviour
         {
             shootTimer += Time.deltaTime; swipeTimer += Time.deltaTime;
         }
-        else if (shootTimer >= randomShootInterval || shootNow)
+        if (shootTimer >= randomShootInterval || shootNow)
         {
             ani.SetTrigger("isShooting");
             onCooldown = true;
