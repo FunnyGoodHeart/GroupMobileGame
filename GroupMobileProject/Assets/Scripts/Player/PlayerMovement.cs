@@ -15,17 +15,17 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] Canvas universalCanvas;
     [SerializeField] Canvas pauseCanvas;
     Collider2D playerCollider;
-    Rigidbody2D rb2d;
+    Rigidbody2D PlayerRB;
     Animator playerAnimator;
 
     void Start()
     {
-        rb2d = GetComponent<Rigidbody2D>();
+        PlayerRB = GetComponent<Rigidbody2D>();
         playerCollider = GetComponent<Collider2D>();
         playerAnimator = GetComponent<Animator>(); 
         if (isTopDown)
         {
-            rb2d.gravityScale = 0;
+            PlayerRB.gravityScale = 0;
         }
         else
         {
@@ -61,11 +61,11 @@ public class PlayerMovement : MonoBehaviour
         }
         if (isTopDown)
         {
-            rb2d.velocity = new Vector3(move.x * moveSpeed, move.y * moveSpeed);
+            PlayerRB.velocity = new Vector3(move.x * moveSpeed, move.y * moveSpeed);
         }
         else
         {
-            rb2d.velocity = new Vector3(move.x * moveSpeed, rb2d.velocity.y, 0);
+            PlayerRB.velocity = new Vector3(move.x * moveSpeed, PlayerRB.velocity.y, 0);
         }
     }
 
@@ -73,7 +73,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (playerCollider.IsTouchingLayers(LayerMask.GetMask("Ground")))
         {
-            rb2d.AddForce(new Vector2(0, 20 * jumpForce));
+            PlayerRB.AddForce(new Vector2(0, 20 * jumpForce));
             playerAnimator.Play("JumpWithGun", -1, 0f);
         }
     }
@@ -81,18 +81,18 @@ public class PlayerMovement : MonoBehaviour
     // Used for running and activating animations
     void Run()
     {
-        bool playerHasHorizontalSpeed = Mathf.Abs(rb2d.velocity.x) > Mathf.Epsilon;
+        bool playerHasHorizontalSpeed = Mathf.Abs(PlayerRB.velocity.x) > Mathf.Epsilon;
         playerAnimator.SetBool("isRunning", playerHasHorizontalSpeed);
     }
 
     // Flips Sprite when the character moves left or right
     void FlipSprite()
     {
-        bool playerHasHorizontalSpeed = Mathf.Abs(rb2d.velocity.x) > Mathf.Epsilon;
+        bool playerHasHorizontalSpeed = Mathf.Abs(PlayerRB.velocity.x) > Mathf.Epsilon;
 
         if (playerHasHorizontalSpeed)
         {
-            transform.localScale = new Vector2(-Mathf.Sign(rb2d.velocity.x), 1f);
+            transform.localScale = new Vector2(-Mathf.Sign(PlayerRB.velocity.x), 1f);
         }
     }
 
@@ -113,7 +113,7 @@ public class PlayerMovement : MonoBehaviour
         {
             moveSpeed = 0;
             jumpForce = 0;
-            rb2d.velocity = Vector2.zero;
+            PlayerRB.velocity = Vector2.zero;
             playerCollider.isTrigger = true; // Player won't get stuck on cactus but will fall through platforms
             mobileCanvas.enabled = false;
             universalCanvas.enabled = false;

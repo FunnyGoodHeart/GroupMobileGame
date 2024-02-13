@@ -55,7 +55,7 @@ public class playerHealth : MonoBehaviour
         {
             plHealth -= atkTumble.enemyAtk;
             healthText.text = "Health: " + plHealth;
-            //Camera.main.GetComponent<AudioSource>().PlayOneShot(tumbleweedCollision);
+            Camera.main.GetComponent<AudioSource>().PlayOneShot(tumbleweedCollision);
         }
     }
 
