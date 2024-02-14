@@ -57,6 +57,32 @@ public class playerAttack : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Max Ammo" && bulletCount < maxBulletCount)
+        {
+            bulletCount = maxBulletCount;
+            if (bulletCount > maxBulletCount)
+            {
+                bulletCount = maxBulletCount;
+            }
+            ammoCount.text = "Ammo: " + bulletCount;
+            Destroy(collision.gameObject);
+        }
+
+        // Picks up regular ammo
+        else if (collision.gameObject.tag == "Ammo Crate" && bulletCount < maxBulletCount)
+        {
+            bulletCount += 6;
+            if (bulletCount > maxBulletCount)
+            {
+                bulletCount = maxBulletCount;
+            }
+            ammoCount.text = "Ammo: " + bulletCount;
+            Destroy(collision.gameObject);
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
