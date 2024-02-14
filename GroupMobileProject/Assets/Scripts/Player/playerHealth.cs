@@ -8,6 +8,8 @@ using Unity.VisualScripting;
 public class playerHealth : MonoBehaviour
 {
     [SerializeField] int plHealth = 10;
+    [SerializeField] int plMaxHealth = 30;
+    [SerializeField] int medKitValue = 5;
     [SerializeField] int loadDelay = 1;
     [SerializeField] AudioClip explosion;
     [SerializeField] AudioClip tumbleweedCollision;
@@ -48,6 +50,17 @@ public class playerHealth : MonoBehaviour
             healthText.text = "Health: " + plHealth;
             Camera.main.GetComponent<AudioSource>().PlayOneShot(tumbleweedCollision);
         }
+
+        if (collision.gameObject.tag == "Med Kit" && plHealth < plMaxHealth)
+        {
+            plHealth += medKitValue;
+            if (plHealth > plMaxHealth)
+            {
+                plHealth = plMaxHealth;
+            }
+            healthText.text = "Health: " + plHealth;
+            Destroy(collision.gameObject);
+        }
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -56,6 +69,17 @@ public class playerHealth : MonoBehaviour
             plHealth -= atkTumble.enemyAtk;
             healthText.text = "Health: " + plHealth;
             Camera.main.GetComponent<AudioSource>().PlayOneShot(tumbleweedCollision);
+        }
+
+        if (collision.gameObject.tag == "Med Kit" && plHealth < plMaxHealth)
+        {
+            plHealth += medKitValue;
+            if (plHealth > plMaxHealth)
+            {
+                plHealth = plMaxHealth;
+            }
+            healthText.text = "Health: " + plHealth;
+            Destroy(collision.gameObject);
         }
     }
 

@@ -11,4 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level 1 Easy.unity
     guid: ebb2e2e845db53b4e879118b83ede168
+  - enabled: 1
+    path: Assets/Scenes/Level 2 Easy.unity
+    guid: daf5f5ae3567a6848bfeee2a4c2895a4
+  - enabled: 1
+    path: Assets/Scenes/BossLevel.unity
+    guid: d58950e6817487546ad1e982165a7809
   m_configObjects: {}
