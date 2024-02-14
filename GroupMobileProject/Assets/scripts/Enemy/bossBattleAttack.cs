@@ -7,32 +7,39 @@ public class bossBattleAttack : MonoBehaviour
     [Header("Game Objects")]
     [SerializeField] GameObject Target;
     [SerializeField] GameObject Hand;
+
     [Header("racoon's Attack")]
     [SerializeField] public int swipeAtk = 1;
     [SerializeField] public int shootAtk = 1;
     [SerializeField] int swipeTime = 1;
     [SerializeField] int ammountOfHandColliders = 11;
+
     [Header("random Stuff")]
     [SerializeField] int minShootNum = 1;
     [SerializeField] int maxShootNum = 5;
     [SerializeField] int minSwipeNum = 1;
     [SerializeField] int maxSwipeNum = 5;
     [SerializeField] int coolDownAtkTime = 2;
+
     [Header("testing animations")]
     [SerializeField] bool shootNow = false;
     [SerializeField] bool swipeNow = false;
+
+    [Header("timers")]
     [SerializeField] float colliderTimer;
+    [SerializeField] float shootTimer;
+    [SerializeField] float swipeTimer;
+    [SerializeField] float cooldown; // puts attacks on cooldown
 
+    [Header("list")]
     public GameObject[] handObjects;
-
+    
     int handObjectIndex = 0;
     int randomShootInterval;
     int randomSwipeInterval;
-    float shootTimer;
-    float swipeTimer;
-    float cooldown; // puts attacks on cooldown
     bool swipping = false;
-    bool onCooldown;
+    bool onCooldown = false;
+    bool firstSwing = true;
     PolygonCollider2D handcollision;
     Animator ani;
     Animator handAni;
@@ -50,7 +57,7 @@ public class bossBattleAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        RacoonSwipe();
+        
         if (onCooldown)
         {
             cooldown += Time.deltaTime;
@@ -73,12 +80,13 @@ public class bossBattleAttack : MonoBehaviour
         }
         else if (swipeTimer >= randomSwipeInterval || swipeNow)
         {
-            
+            swipping = true;
             ani.SetTrigger("isSwiping");
             handAni.SetTrigger("isSwipping");
             swipeTimer = 0;
             swipeNow = false;
         }
+        RacoonSwipe();
     }
     void RacoonSwipe()
     {
@@ -92,12 +100,20 @@ public class bossBattleAttack : MonoBehaviour
         {
             colliderTimer = 0;
         }
-        if(colliderTimer >= swipeTime)
+        if(colliderTimer >= betweenAniTimes && swipping || firstSwing && swipping)
         {
+            colliderTimer = 0; //add the colliders
             PolygonCollider2D currentHand;
-            handObjectIndex = (handObjectIndex + 1) % handObjects.Length;
             currentHand = handObjects[handObjectIndex].GetComponent<PolygonCollider2D>();
             currentHand.enabled = true;
+            handObjectIndex = (handObjectIndex + 1) % handObjects.Length;
+            if (handObjectIndex >= 1)
+            {
+                handObjectIndex = (handObjectIndex - 1) % handObjects.Length;
+                currentHand = handObjects[handObjectIndex].GetComponent<PolygonCollider2D>();
+                currentHand.enabled = false;
+                handObjectIndex = (handObjectIndex + 1) % handObjects.Length;
+            }
         }
     }
 }
