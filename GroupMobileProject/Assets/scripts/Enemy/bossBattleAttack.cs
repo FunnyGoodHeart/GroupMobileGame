@@ -41,17 +41,21 @@ public class bossBattleAttack : MonoBehaviour
     bool onCooldown = false;
     bool firstSwing = true;
     PolygonCollider2D handcollision;
+    SpriteRenderer handsprite;
     Animator ani;
     Animator handAni;
     // Start is called before the first frame update
     void Start()
     {
+
         handcollision = Hand.GetComponent<PolygonCollider2D>();
         ani = GetComponent<Animator>();
         maxShootNum += 1;   maxSwipeNum += 1;   //allows it to be the number that was put into the serilize field;
         randomShootInterval = Random.Range(minShootNum, maxShootNum);
         randomSwipeInterval = Random.Range(minSwipeNum, maxSwipeNum);
         handAni = Hand.GetComponent<Animator>();
+        handsprite = Hand.GetComponent<SpriteRenderer>();
+        handsprite.enabled = false;
     }
 
     // Update is called once per frame
@@ -80,13 +84,16 @@ public class bossBattleAttack : MonoBehaviour
         }
         else if (swipeTimer >= randomSwipeInterval || swipeNow)
         {
+            handsprite.enabled = true;
             swipping = true;
             ani.SetTrigger("isSwiping");
             handAni.SetTrigger("isSwipping");
             swipeTimer = 0;
             swipeNow = false;
+            RacoonSwipe();
+            handsprite.enabled = false;
         }
-        RacoonSwipe();
+        
     }
     void RacoonSwipe()
     {
@@ -113,6 +120,11 @@ public class bossBattleAttack : MonoBehaviour
                 currentHand = handObjects[handObjectIndex].GetComponent<PolygonCollider2D>();
                 currentHand.enabled = false;
                 handObjectIndex = (handObjectIndex + 1) % handObjects.Length;
+            }
+            if(handObjectIndex >= ammountOfHandColliders)
+            {
+                currentHand.enabled = false;
+                handObjectIndex = (handObjectIndex - ammountOfHandColliders) % handObjects.Length;
             }
         }
     }
