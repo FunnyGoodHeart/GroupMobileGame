@@ -11,10 +11,12 @@ public class BossRacoonHealth : MonoBehaviour
     Animator ani;
     playerAttack playAtk;
     float deathTimer;
+
     private void Start()
     {
         playAtk = player.GetComponent<playerAttack>();
         ani = GetComponent<Animator>();
+
     }
     void Update()
     {
