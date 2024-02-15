@@ -30,13 +30,13 @@ public class PauseMenu : MonoBehaviour {
 
 	public void ExitGame()
 	{
-		Application.Quit ();
+		Application.Quit();
 	}
 
 	public void LoadMainMenu()
 	{
 		Time.timeScale = 1;
-		SceneManager.LoadScene ("Main Menu");
+		SceneManager.LoadScene("Main Menu");
 	}
 
 	public void LoadPauseMenu()

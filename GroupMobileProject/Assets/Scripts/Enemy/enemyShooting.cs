@@ -56,18 +56,16 @@ public class enemyShooting : MonoBehaviour
             timer = 0;
             if (isCatus)
             {
-                Debug.Log("player towards shoot");
                 myAnimator.SetTrigger("isShooting");
             }
             shootDirection.Normalize();
-            //Camera.main.GetComponent<AudioSource>().PlayOneShot(enemyShootSound);
+            Camera.main.GetComponent<AudioSource>().PlayOneShot(enemyShootSound);
             GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
             bullet.transform.up = shootDirection;
             bullet.GetComponent<Rigidbody2D>().velocity = shootDirection * bulletSpeed;
         }
         else if (Time.time >= nextFireTime && shootRandomly)
         {
-            Debug.Log("step 1");
             currentAngle = 0f;
             FireBullet();
             nextFireTime = Time.time + fireRate;
@@ -76,17 +74,15 @@ public class enemyShooting : MonoBehaviour
 
     void FireBullet ()
     {
-        Debug.Log("Step 2");
         if (isCatus)
         {
-            Debug.Log("antmation");
             myAnimator.Play("catusAttackAnimation", -1, 0f);
         }
         for (int i = 0; i < bulletsPerRotation; i++)
         {
-            Debug.Log("Fire in the hole");
             float angleRadians = currentAngle * Mathf.Deg2Rad;
             Vector2 direction = new Vector2(Mathf.Cos(angleRadians), Mathf.Sin(angleRadians));
+            Camera.main.GetComponent<AudioSource>().PlayOneShot(enemyShootSound);
             GameObject projectile = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
             projectile.GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed;
             currentAngle += 360f / bulletsPerRotation;
