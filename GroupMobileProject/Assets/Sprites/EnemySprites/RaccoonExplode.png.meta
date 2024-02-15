@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d659b8800da484241973bf74eceb9c18
+guid: 7ad149822de093a479019276c90bb293
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,12 +123,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: RaccoonShootFoam_0
+      name: RaccoonExplode_0
       rect:
         serializedVersion: 2
-        x: 190
-        y: 3070
-        width: 644
+        x: 0
+        y: 3072
+        width: 1024
         height: 720
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -137,19 +137,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 10aa681619959f749bee79cf765a35ff
-      internalID: 839631926
+      spriteID: cb7afe418b3da2e4f9fc831b3cbc0f1b
+      internalID: -1449127236
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RaccoonShootFoam_1
+      name: RaccoonExplode_1
       rect:
         serializedVersion: 2
-        x: 1214
-        y: 3070
-        width: 644
+        x: 1024
+        y: 3072
+        width: 1024
         height: 720
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -158,19 +158,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5921ed10182552a40862d3aedc7229f5
-      internalID: -1898527395
+      spriteID: 4d7de17947fa45842bcbd38c47edfa2f
+      internalID: 145291310
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RaccoonShootFoam_2
+      name: RaccoonExplode_2
       rect:
         serializedVersion: 2
-        x: 2234
-        y: 3070
-        width: 652
+        x: 2048
+        y: 3072
+        width: 1024
         height: 720
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -179,19 +179,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 251257dc0ea7b824f9bf51011e6e1b52
-      internalID: 1298248792
+      spriteID: 7383ba41157761242ae5412236439c56
+      internalID: -407946157
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RaccoonShootFoam_3
+      name: RaccoonExplode_3
       rect:
         serializedVersion: 2
-        x: 3258
-        y: 3070
-        width: 652
+        x: 3072
+        y: 3072
+        width: 1024
         height: 720
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -200,19 +200,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 622ca2beecc71944ab37158d493418af
-      internalID: 231532998
+      spriteID: 0e54d21e18b1f4e4eb44a44d1d29d319
+      internalID: 1468204390
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RaccoonShootFoam_4
+      name: RaccoonExplode_4
       rect:
         serializedVersion: 2
-        x: 186
-        y: 2046
-        width: 652
+        x: 0
+        y: 2048
+        width: 1024
         height: 720
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -221,19 +221,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 012c87411f9038e48af9f3f4b6c675d3
-      internalID: -2133574870
+      spriteID: 550b7e569eb2ca248928717cd7d21364
+      internalID: -606596547
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RaccoonShootFoam_5
+      name: RaccoonExplode_5
       rect:
         serializedVersion: 2
-        x: 1210
-        y: 2046
-        width: 652
+        x: 1024
+        y: 2048
+        width: 1024
         height: 720
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -242,19 +242,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6fde1bc54c1260041a120275ae7daa99
-      internalID: -819433763
+      spriteID: 7e5c6753f1c939d4fbc198ed97fdd5fc
+      internalID: 408574102
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RaccoonShootFoam_6
+      name: RaccoonExplode_6
       rect:
         serializedVersion: 2
-        x: 2234
-        y: 2046
-        width: 652
+        x: 2052
+        y: 2048
+        width: 1024
         height: 720
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -263,19 +263,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0b3474a51cefe94458f4e3cdb5b82955
-      internalID: 1693349443
+      spriteID: aa11f5815d2f4a847bfc529f410fa126
+      internalID: -1397140968
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RaccoonShootFoam_7
+      name: RaccoonExplode_7
       rect:
         serializedVersion: 2
-        x: 3258
-        y: 2046
-        width: 652
+        x: 3072
+        y: 2048
+        width: 1024
         height: 720
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -284,19 +284,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4613f7f187860ec4c86f3049f4975b28
-      internalID: 975034495
+      spriteID: 47613dad3d520514c8c6d51fb8e48a22
+      internalID: -1367487728
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RaccoonShootFoam_8
+      name: RaccoonExplode_8
       rect:
         serializedVersion: 2
-        x: 186
-        y: 1022
-        width: 652
+        x: 0
+        y: 1024
+        width: 1024
         height: 720
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -305,19 +305,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2d043924aecf2bf44b4c9b89debb2d80
-      internalID: -1340641911
+      spriteID: eab2d7336c373b545a8fc5aa2da8f740
+      internalID: -611895645
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RaccoonShootFoam_9
+      name: RaccoonExplode_9
       rect:
         serializedVersion: 2
-        x: 1214
-        y: 1022
-        width: 644
+        x: 1024
+        y: 1024
+        width: 1024
         height: 720
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -326,19 +326,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 058cb5ab257bc5047aedf3fc84628f20
-      internalID: 1345784081
+      spriteID: 215d18727ac09e040b97b72818215a81
+      internalID: -265440252
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RaccoonShootFoam_10
+      name: RaccoonExplode_10
       rect:
         serializedVersion: 2
-        x: 2238
-        y: 1022
-        width: 644
+        x: 2048
+        y: 1024
+        width: 1024
         height: 720
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -347,19 +347,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b2399f4d4030648468845bdadc08fe22
-      internalID: 1353784792
+      spriteID: 6d0da5415ec3fce448036c66a3a2214f
+      internalID: 1299896581
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RaccoonShootFoam_11
+      name: RaccoonExplode_11
       rect:
         serializedVersion: 2
-        x: 3262
-        y: 1022
-        width: 644
+        x: 3072
+        y: 1024
+        width: 1024
         height: 720
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -368,20 +368,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 719dd276d61b812408584062af4f4562
-      internalID: -354008628
+      spriteID: e0d5733f3d7ff074ba46fce9f06e2e0f
+      internalID: 1132320397
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RaccoonShootFoam_12
+      name: RaccoonExplode_12
       rect:
         serializedVersion: 2
-        x: 190
+        x: 0
         y: 0
-        width: 644
-        height: 720
+        width: 1024
+        height: 1024
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -389,20 +389,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6dd9de4639a06b445b30b8d55e8d28b1
-      internalID: 1731310537
+      spriteID: 687bf86d284d0e64d8a66ea4129c2edb
+      internalID: 1118225340
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RaccoonShootFoam_13
+      name: RaccoonExplode_13
       rect:
         serializedVersion: 2
-        x: 1214
+        x: 3072
         y: 0
-        width: 644
-        height: 720
+        width: 1024
+        height: 1024
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -410,8 +410,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cb76faa003b78004dbb2502d2620fcfb
-      internalID: 152382623
+      spriteID: 9aeb4d1a826a9874784282e64d6e9a1b
+      internalID: 1123337298
       vertices: []
       indices: 
       edges: []
@@ -427,20 +427,20 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      RaccoonShootFoam_0: 839631926
-      RaccoonShootFoam_1: -1898527395
-      RaccoonShootFoam_10: 1353784792
-      RaccoonShootFoam_11: -354008628
-      RaccoonShootFoam_12: 1731310537
-      RaccoonShootFoam_13: 152382623
-      RaccoonShootFoam_2: 1298248792
-      RaccoonShootFoam_3: 231532998
-      RaccoonShootFoam_4: -2133574870
-      RaccoonShootFoam_5: -819433763
-      RaccoonShootFoam_6: 1693349443
-      RaccoonShootFoam_7: 975034495
-      RaccoonShootFoam_8: -1340641911
-      RaccoonShootFoam_9: 1345784081
+      RaccoonExplode_0: -1449127236
+      RaccoonExplode_1: 145291310
+      RaccoonExplode_10: 1299896581
+      RaccoonExplode_11: 1132320397
+      RaccoonExplode_12: 1118225340
+      RaccoonExplode_13: 1123337298
+      RaccoonExplode_2: -407946157
+      RaccoonExplode_3: 1468204390
+      RaccoonExplode_4: -606596547
+      RaccoonExplode_5: 408574102
+      RaccoonExplode_6: -1397140968
+      RaccoonExplode_7: -1367487728
+      RaccoonExplode_8: -611895645
+      RaccoonExplode_9: -265440252
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
