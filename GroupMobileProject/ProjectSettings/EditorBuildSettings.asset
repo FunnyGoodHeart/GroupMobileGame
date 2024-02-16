@@ -15,12 +15,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Level 2 Easy.unity
     guid: daf5f5ae3567a6848bfeee2a4c2895a4
   - enabled: 1
-    path: Assets/Scenes/Real BossLevel.unity
+    path: Assets/Scenes/Real BossLevel easy.unity
     guid: d58950e6817487546ad1e982165a7809
-  - enabled: 1
-    path: Assets/Scenes/Level 1 Normal.unity
-    guid: 95e6e3b887f50e441ad1002b39e56d52
-  - enabled: 1
-    path: Assets/Scenes/Level 2 Normal.unity
-    guid: 640a561323381d041b02d9f190f3b5d0
   m_configObjects: {}
