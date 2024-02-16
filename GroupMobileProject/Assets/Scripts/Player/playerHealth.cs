@@ -17,12 +17,13 @@ public class playerHealth : MonoBehaviour
     [SerializeField] TextMeshProUGUI healthText;
     [SerializeField] GameObject tumbleweedParent; //connect parent game object to these
     [SerializeField] GameObject catusParent;//same here
+    [SerializeField] GameObject racoonManBoss;
     Animator playerAnimator;
     Rigidbody2D playerRB;
     PlayerMovement playerMove;
     attackTumbleweed atkTumble;
     attackTumbleweed atkCatus;
-
+    bossBattleAttack bossAtk;
 
     void Start()
     {
@@ -32,7 +33,7 @@ public class playerHealth : MonoBehaviour
         playerMove = GetComponent<PlayerMovement>();
         atkTumble = tumbleweedParent.GetComponent<attackTumbleweed>();
         atkCatus = catusParent.GetComponent<attackTumbleweed>();
-
+        bossAtk = racoonManBoss.GetComponent<bossBattleAttack>();
     }
     private void Update()
     {
@@ -64,6 +65,11 @@ public class playerHealth : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if(collision.gameObject.tag == "Hand")
+        {
+            plHealth -= bossAtk.swipeAtk;
+            healthText.text = "Health: " + plHealth;
+        }
         if(collision.gameObject.tag == "TumbleWeed" && atkTumble.enemyCollision)
         {
             plHealth -= atkTumble.enemyAtk;
