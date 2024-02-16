@@ -31,19 +31,17 @@ public class bossBattleAttack : MonoBehaviour
     [SerializeField] float swipeTimer;
     [SerializeField] float cooldown; // puts attacks on cooldown
 
-    [Header("list")]
-    public GameObject[] handObjects;
-    
-    int handObjectIndex = 0;
     int randomShootInterval;
     int randomSwipeInterval;
     bool swipping = false;
     bool onCooldown = false;
     bool firstSwing = true;
+    bool cooldownStart = true;
     PolygonCollider2D handcollision;
     SpriteRenderer handsprite;
     Animator ani;
     Animator handAni;
+    [SerializeField] int randomAttacks;
     // Start is called before the first frame update
     void Start()
     {
@@ -53,6 +51,7 @@ public class bossBattleAttack : MonoBehaviour
         maxShootNum += 1;   maxSwipeNum += 1;   //allows it to be the number that was put into the serilize field;
         randomShootInterval = Random.Range(minShootNum, maxShootNum);
         randomSwipeInterval = Random.Range(minSwipeNum, maxSwipeNum);
+        randomAttacks = Random.Range(1, 3);
         handAni = Hand.GetComponent<Animator>();
         handsprite = Hand.GetComponent<SpriteRenderer>();
         handsprite.enabled = false;
@@ -61,71 +60,57 @@ public class bossBattleAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        if (onCooldown)
+
+        shootTimer += Time.deltaTime; swipeTimer += Time.deltaTime;
+        cooldown += Time.deltaTime;
+        if (shootTimer >= randomShootInterval && randomAttacks == 1 || shootNow )
         {
-            cooldown += Time.deltaTime;
-            if(cooldown >= coolDownAtkTime)
-            {
-                shootTimer = 0;     swipeTimer = 0;
-                onCooldown = false;
-            }
-        }
-        if (onCooldown!)
-        {
-            shootTimer += Time.deltaTime; swipeTimer += Time.deltaTime;
-        }
-        if (shootTimer >= randomShootInterval || shootNow)
-        {
+            Debug.Log("pew pew");
             ani.SetTrigger("isShooting");
             onCooldown = true;
             shootTimer = 0;
             shootNow = false;
+            onCooldown = true;
         }
-        else if (swipeTimer >= randomSwipeInterval || swipeNow)
+        else if (swipeTimer >= randomSwipeInterval && randomAttacks == 2 || swipeNow)
         {
-            handsprite.enabled = true;
-            swipping = true;
-            ani.SetTrigger("isSwiping");
-            handAni.SetTrigger("isSwipping");
-            swipeTimer = 0;
-            swipeNow = false;
+            Debug.Log("swipp");
             RacoonSwipe();
-            handsprite.enabled = false;
+            onCooldown = true;
         }
-        
+        if (onCooldown!)
+        {
+            Debug.Log("empty cooldown");
+            cooldown = 0;
+        }
+        else if (onCooldown)
+        {
+            Debug.Log("brr cold for cool down");
+            if (cooldownStart)
+            {
+                Debug.Log("cooldown start");
+                cooldown = 0;
+                randomAttacks = Random.Range(1, 3);
+                cooldownStart = false;
+            }
+            if (cooldown >= coolDownAtkTime)
+            {
+                Debug.Log("cooldown end");
+                cooldown = 0;
+                shootTimer = 0; swipeTimer = 0;
+                cooldownStart = true;
+                onCooldown = false;
+            }
+        }
     }
     void RacoonSwipe()
     {
-        //this is gonna be a little funky area to make sure the collision keeps up with the boss
-        float betweenAniTimes = swipeTime / ammountOfHandColliders;
-        if (swipping)
-        {
-            colliderTimer += Time.deltaTime;
-        }
-        else
-        {
-            colliderTimer = 0;
-        }
-        if(colliderTimer >= betweenAniTimes && swipping || firstSwing && swipping)
-        {
-            colliderTimer = 0; //add the colliders
-            PolygonCollider2D currentHand;
-            currentHand = handObjects[handObjectIndex].GetComponent<PolygonCollider2D>();
-            currentHand.enabled = true;
-            handObjectIndex = (handObjectIndex + 1) % handObjects.Length;
-            if (handObjectIndex >= 1)
-            {
-                handObjectIndex = (handObjectIndex - 1) % handObjects.Length;
-                currentHand = handObjects[handObjectIndex].GetComponent<PolygonCollider2D>();
-                currentHand.enabled = false;
-                handObjectIndex = (handObjectIndex + 1) % handObjects.Length;
-            }
-            if(handObjectIndex >= ammountOfHandColliders)
-            {
-                currentHand.enabled = false;
-                handObjectIndex = (handObjectIndex - ammountOfHandColliders) % handObjects.Length;
-            }
-        }
+        handsprite.enabled = true;
+        swipping = true;
+        ani.SetTrigger("isSwiping");
+        handAni.SetTrigger("isSwipping");
+        swipeTimer = 0;
+        swipeNow = false;
+
     }
 }
