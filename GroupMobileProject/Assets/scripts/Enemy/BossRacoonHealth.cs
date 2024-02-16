@@ -7,6 +7,7 @@ public class BossRacoonHealth : MonoBehaviour
     [SerializeField] int racoonsHealth = 100;
     [SerializeField] GameObject player;
     [SerializeField] int dead;
+    [SerializeField] GameObject teleporter;
 
     Animator ani;
     playerAttack playAtk;
@@ -27,6 +28,7 @@ public class BossRacoonHealth : MonoBehaviour
             if(deathTimer >= dead)
             {
                 Destroy(gameObject);
+                teleporter.SetActive(true);
             }
         }
     }
