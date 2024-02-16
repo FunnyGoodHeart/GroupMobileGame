@@ -26,12 +26,12 @@ public class levelExit : MonoBehaviour
         }
     }
 
-    void LastLevel()
+    public void LastLevel()
     {
         SceneManager.LoadScene(lastLevel);
     }
 
-    void NextLevel()
+    public void NextLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
