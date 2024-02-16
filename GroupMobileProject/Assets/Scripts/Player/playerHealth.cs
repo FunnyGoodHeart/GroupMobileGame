@@ -13,7 +13,6 @@ public class playerHealth : MonoBehaviour
     [SerializeField] int loadDelay = 1;
     [SerializeField] AudioClip explosion;
     [SerializeField] AudioClip tumbleweedCollision;
-    [SerializeField] attackTumbleweed atkTums;
     [SerializeField] TextMeshProUGUI healthText;
     [SerializeField] GameObject tumbleweedParent; //connect parent game object to these
     [SerializeField] GameObject catusParent;//same here
@@ -51,7 +50,17 @@ public class playerHealth : MonoBehaviour
             healthText.text = "Health: " + plHealth;
             Camera.main.GetComponent<AudioSource>().PlayOneShot(tumbleweedCollision);
         }
-
+        if (collision.gameObject.name == "Hand")
+        {
+            plHealth -= bossAtk.swipeAtk;
+            healthText.text = "Health: " + plHealth;
+        }
+        if(collision.gameObject.name == "HandHitBox")
+        {
+            plHealth -= bossAtk.shootAtk;
+            healthText.text = "Health: " + plHealth;
+            Destroy(collision.gameObject);
+        }
         if (collision.gameObject.tag == "Med Kit" && plHealth < plMaxHealth)
         {
             plHealth += medKitValue;
@@ -65,11 +74,7 @@ public class playerHealth : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "Hand")
-        {
-            plHealth -= bossAtk.swipeAtk;
-            healthText.text = "Health: " + plHealth;
-        }
+        
         if(collision.gameObject.tag == "TumbleWeed" && atkTumble.enemyCollision)
         {
             plHealth -= atkTumble.enemyAtk;

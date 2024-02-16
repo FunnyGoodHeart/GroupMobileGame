@@ -5,52 +5,51 @@ using UnityEngine;
 public class bossBattleAttack : MonoBehaviour
 {
     [Header("Game Objects")]
-    [SerializeField] GameObject Target;
+    [SerializeField] GameObject target;
     [SerializeField] GameObject Hand;
+    [SerializeField] GameObject HandBox;
+    [SerializeField] GameObject rabiesbullet;
+
+    [Header("rabies")]
+    [SerializeField] float shootRange = 7f;
+    [SerializeField] bool predictiveShoot = true;
+    [SerializeField] float predictiveLead = 1;
+    [SerializeField] AudioClip enemyShootSound;
+    [SerializeField] float bulletSpeed = 2f;
 
     [Header("racoon's Attack")]
     [SerializeField] public int swipeAtk = 1;
     [SerializeField] public int shootAtk = 1;
-    [SerializeField] int swipeTime = 1;
-    [SerializeField] int ammountOfHandColliders = 11;
 
     [Header("random Stuff")]
-    [SerializeField] int minShootNum = 1;
-    [SerializeField] int maxShootNum = 5;
-    [SerializeField] int minSwipeNum = 1;
-    [SerializeField] int maxSwipeNum = 5;
-    [SerializeField] int coolDownAtkTime = 2;
+    [SerializeField] int minCoolDownTime = 4;
+    [SerializeField] int maxCoolDownTime = 6;
+    [SerializeField] int timeOfSwipe = 2;
 
-    [Header("testing animations")]
+    [Header("Bool")]
     [SerializeField] bool shootNow = false;
     [SerializeField] bool swipeNow = false;
 
     [Header("timers")]
     [SerializeField] float colliderTimer;
-    [SerializeField] float shootTimer;
-    [SerializeField] float swipeTimer;
     [SerializeField] float cooldown; // puts attacks on cooldown
+    float timer;
 
-    int randomShootInterval;
-    int randomSwipeInterval;
-    bool swipping = false;
-    bool onCooldown = false;
-    bool firstSwing = true;
+    bool onCooldown = true;
     bool cooldownStart = true;
-    PolygonCollider2D handcollision;
+    bool clearBox = false;
+    BoxCollider2D handHitBox;
     SpriteRenderer handsprite;
     Animator ani;
     Animator handAni;
-    [SerializeField] int randomAttacks;
+    int randomAttacks;
+    int randomCoolDown;
     // Start is called before the first frame update
     void Start()
     {
-
-        handcollision = Hand.GetComponent<PolygonCollider2D>();
+        randomCoolDown = Random.Range(minCoolDownTime, maxCoolDownTime);
+        handHitBox = HandBox.GetComponent<BoxCollider2D>();
         ani = GetComponent<Animator>();
-        maxShootNum += 1;   maxSwipeNum += 1;   //allows it to be the number that was put into the serilize field;
-        randomShootInterval = Random.Range(minShootNum, maxShootNum);
-        randomSwipeInterval = Random.Range(minSwipeNum, maxSwipeNum);
         randomAttacks = Random.Range(1, 3);
         handAni = Hand.GetComponent<Animator>();
         handsprite = Hand.GetComponent<SpriteRenderer>();
@@ -60,57 +59,87 @@ public class bossBattleAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        shootTimer += Time.deltaTime; swipeTimer += Time.deltaTime;
+        colliderTimer += Time.deltaTime;
         cooldown += Time.deltaTime;
-        if (shootTimer >= randomShootInterval && randomAttacks == 1 || shootNow )
+        if (randomAttacks == 1 && onCooldown == false || shootNow) 
         {
-            Debug.Log("pew pew");
-            ani.SetTrigger("isShooting");
-            onCooldown = true;
-            shootTimer = 0;
-            shootNow = false;
-            onCooldown = true;
+            RacoonShoot();
         }
-        else if (swipeTimer >= randomSwipeInterval && randomAttacks == 2 || swipeNow)
+        else if ( randomAttacks == 2 && onCooldown == false || swipeNow) 
         {
             Debug.Log("swipp");
             RacoonSwipe();
             onCooldown = true;
         }
-        if (onCooldown!)
+        DoCoolDown();
+    }
+    void DoCoolDown()
+    {
+        if (colliderTimer > timeOfSwipe && clearBox == true)
+        {
+            Debug.Log("clear box");
+            colliderTimer = 0;
+            handHitBox.enabled = false;
+            clearBox = false;
+        }
+        if (onCooldown == false && clearBox == false)
         {
             Debug.Log("empty cooldown");
             cooldown = 0;
         }
-        else if (onCooldown)
+        if (onCooldown == true && clearBox==false)
         {
             Debug.Log("brr cold for cool down");
             if (cooldownStart)
             {
                 Debug.Log("cooldown start");
                 cooldown = 0;
+                colliderTimer = 0;
                 randomAttacks = Random.Range(1, 3);
                 cooldownStart = false;
             }
-            if (cooldown >= coolDownAtkTime)
+            if (cooldown >= randomCoolDown)
             {
                 Debug.Log("cooldown end");
                 cooldown = 0;
-                shootTimer = 0; swipeTimer = 0;
+                colliderTimer = 0;
                 cooldownStart = true;
                 onCooldown = false;
+                randomCoolDown = Random.Range(minCoolDownTime, maxCoolDownTime);
             }
+        }
+    }
+    void RacoonShoot()
+    {
+        Debug.Log("pew pew");
+        ani.SetTrigger("isShooting");
+        onCooldown = true;
+        shootNow = false;
+
+        Vector3 playerPosition = target.transform.position;
+        Vector3 shootDirection = playerPosition - transform.position;
+        if (shootDirection.magnitude < shootRange)
+        {
+            //Enemy predicts where to shoot
+            if (predictiveShoot)
+            {
+                Vector3 playerVel = target.GetComponent<Rigidbody2D>().velocity;
+                shootDirection += playerVel * predictiveLead;
+            }
+            shootDirection.Normalize();
+            Camera.main.GetComponent<AudioSource>().PlayOneShot(enemyShootSound);
+            GameObject bullet = Instantiate(rabiesbullet, transform.position, Quaternion.identity);
+            bullet.transform.up = shootDirection;
+            bullet.GetComponent<Rigidbody2D>().velocity = shootDirection * bulletSpeed;
         }
     }
     void RacoonSwipe()
     {
+        handHitBox.enabled = true;
         handsprite.enabled = true;
-        swipping = true;
         ani.SetTrigger("isSwiping");
         handAni.SetTrigger("isSwipping");
-        swipeTimer = 0;
         swipeNow = false;
-
+        clearBox = true;
     }
 }
