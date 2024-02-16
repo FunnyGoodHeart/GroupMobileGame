@@ -8,16 +8,19 @@ public class restartOnFall : MonoBehaviour
 {
     [SerializeField] float loadDelay = 1f;
     Animator playerAnimator;
+    SpriteRenderer playerRender;
 
     private void Start()
     {
         playerAnimator = GetComponent<Animator>();
+        playerRender = GetComponent<SpriteRenderer>();
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Falling")
         {
             playerAnimator.Play("FallingWithoutHat");
+            playerRender.sortingOrder = 1;
         }
 
         if (collision.gameObject.tag == "FallDeath")

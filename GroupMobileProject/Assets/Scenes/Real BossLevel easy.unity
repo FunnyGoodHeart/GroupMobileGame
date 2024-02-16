@@ -409,6 +409,10 @@ PrefabInstance:
       propertyPath: m_Follow
       value: 
       objectReference: {fileID: 1102938370}
+    - target: {fileID: 666697115749776537, guid: 7d64a10b1edbfb94b8513ddb35e61edd, type: 3}
+      propertyPath: m_Lens.OrthographicSize
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 5441649542349336300, guid: 7d64a10b1edbfb94b8513ddb35e61edd, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7
@@ -24341,7 +24345,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 8
+  orthographic size: 6
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -26453,6 +26457,10 @@ PrefabInstance:
     - target: {fileID: 652166376708222852, guid: 5970e4137ad291f46bba08d9cbb998bd, type: 3}
       propertyPath: playerAtk
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 652166376708222852, guid: 5970e4137ad291f46bba08d9cbb998bd, type: 3}
+      propertyPath: bulletCount
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 652166376708222852, guid: 5970e4137ad291f46bba08d9cbb998bd, type: 3}
       propertyPath: playerBullet
