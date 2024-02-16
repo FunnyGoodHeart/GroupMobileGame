@@ -5374,6 +5374,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2271899984325255633, guid: 5970e4137ad291f46bba08d9cbb998bd, type: 3}
+      propertyPath: plHealth
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 2271899984325255633, guid: 5970e4137ad291f46bba08d9cbb998bd, type: 3}
       propertyPath: catusParent
       value: 
       objectReference: {fileID: 946446151}

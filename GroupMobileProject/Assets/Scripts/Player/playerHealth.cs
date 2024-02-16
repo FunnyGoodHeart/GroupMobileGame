@@ -59,7 +59,7 @@ public class playerHealth : MonoBehaviour
         if(collision.gameObject.name == "HandHitBox")
         {
             Debug.Log("hit");
-            plHealth -= bossAtk.shootAtk;
+            plHealth -= 1;
             healthText.text = "Health: " + plHealth;
             Destroy(collision.gameObject);
         }
