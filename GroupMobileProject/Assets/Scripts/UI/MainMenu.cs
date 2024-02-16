@@ -31,13 +31,11 @@ public class MainMenu : MonoBehaviour
     public void Easy()
     {
         SceneManager.LoadScene(1);
-        Debug.Log("easy");
     }
 
     public void Normal()
     {
-        //SceneManager.LoadScene(x); Change x once all levels are added
-        Debug.Log("normal");
+        SceneManager.LoadScene(4);
     }
 
     public void Hard()

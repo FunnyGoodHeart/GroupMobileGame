@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using System.Xml.Serialization;
 
 public class playerAttack : MonoBehaviour
 {
@@ -28,61 +29,7 @@ public class playerAttack : MonoBehaviour
     float timer;
     float animationShootinCool = 1;
     bool justShot = false;
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        // Ammo pick up stuff
-
-        // Picks up Max Ammo 
-        if (collision.gameObject.tag == "Max Ammo" && bulletCount < maxBulletCount)
-        {
-            bulletCount = maxBulletCount;
-            if (bulletCount > maxBulletCount)
-            {
-                bulletCount = maxBulletCount;
-            }
-            ammoCount.text = "Ammo: " + bulletCount;
-            Destroy(collision.gameObject);
-        }
-
-        // Picks up regular ammo
-        else if (collision.gameObject.tag == "Ammo Crate" && bulletCount < maxBulletCount)
-        {
-            bulletCount += 6;
-            if (bulletCount > maxBulletCount)
-            {
-                bulletCount = maxBulletCount;
-            }
-            ammoCount.text = "Ammo: " + bulletCount;
-            Destroy(collision.gameObject);
-        }
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Max Ammo" && bulletCount < maxBulletCount)
-        {
-            bulletCount = maxBulletCount;
-            if (bulletCount > maxBulletCount)
-            {
-                bulletCount = maxBulletCount;
-            }
-            ammoCount.text = "Ammo: " + bulletCount;
-            Destroy(collision.gameObject);
-        }
-
-        // Picks up regular ammo
-        else if (collision.gameObject.tag == "Ammo Crate" && bulletCount < maxBulletCount)
-        {
-            bulletCount += 6;
-            if (bulletCount > maxBulletCount)
-            {
-                bulletCount = maxBulletCount;
-            }
-            ammoCount.text = "Ammo: " + bulletCount;
-            Destroy(collision.gameObject);
-        }
-    }
-
+   
     // Start is called before the first frame update
     void Start()
     {
@@ -154,4 +101,70 @@ public class playerAttack : MonoBehaviour
             }
         }
     }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        // Ammo pick up stuff
+        // Picks up Max Ammo 
+        if (collision.gameObject.tag == "Max Ammo" && bulletCount < maxBulletCount)
+        {
+            bulletCount = maxBulletCount;
+            if (bulletCount > maxBulletCount)
+            {
+                bulletCount = maxBulletCount;
+            }
+            ammoCount.text = "Ammo: " + bulletCount;
+            Destroy(collision.gameObject);
+        }
+
+        // Picks up regular ammo
+        else if (collision.gameObject.tag == "Ammo Crate" && bulletCount < maxBulletCount)
+        {
+            bulletCount += 6;
+            if (bulletCount > maxBulletCount)
+            {
+                bulletCount = maxBulletCount;
+            }
+            ammoCount.text = "Ammo: " + bulletCount;
+            Destroy(collision.gameObject);
+        }
+
+        // Shooting Disabled Here 
+
+        if (collision.gameObject.tag == "Falling")
+        {
+            bulletCount = 0;
+        }
+
+        if (collision.gameObject.tag == "TooHigh")
+        {
+            bulletCount = 0;
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Max Ammo" && bulletCount < maxBulletCount)
+        {
+            bulletCount = maxBulletCount;
+            if (bulletCount > maxBulletCount)
+            {
+                bulletCount = maxBulletCount;
+            }
+            ammoCount.text = "Ammo: " + bulletCount;
+            Destroy(collision.gameObject);
+        }
+
+        // Picks up regular ammo
+        else if (collision.gameObject.tag == "Ammo Crate" && bulletCount < maxBulletCount)
+        {
+            bulletCount += 6;
+            if (bulletCount > maxBulletCount)
+            {
+                bulletCount = maxBulletCount;
+            }
+            ammoCount.text = "Ammo: " + bulletCount;
+            Destroy(collision.gameObject);
+        }
+    }
+
 }

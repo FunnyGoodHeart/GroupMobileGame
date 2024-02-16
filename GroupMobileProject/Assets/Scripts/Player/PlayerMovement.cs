@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float moveSpeed = 2;
     [SerializeField] bool isTopDown = true;
     [SerializeField] bool allowKeyControls = true;
+    [SerializeField] bool canJump = true;
     [SerializeField] FixedJoystick joystick;
     [SerializeField] Canvas mobileCanvas;
     [SerializeField] Canvas universalCanvas;
@@ -71,7 +72,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void Jump()
     {
-        if (playerCollider.IsTouchingLayers(LayerMask.GetMask("Ground")))
+        if (playerCollider.IsTouchingLayers(LayerMask.GetMask("Ground")) && canJump == true)
         {
             PlayerRB.AddForce(new Vector2(0, 20 * jumpForce));
             playerAnimator.Play("JumpWithGun", -1, 0f);
@@ -111,6 +112,7 @@ public class PlayerMovement : MonoBehaviour
         // Disables movements when riding a tumbleweed
         if (collision.gameObject.tag == "TooHigh")
         {
+            canJump = false;
             moveSpeed = 0;
             jumpForce = 0;
             PlayerRB.velocity = Vector2.zero;
