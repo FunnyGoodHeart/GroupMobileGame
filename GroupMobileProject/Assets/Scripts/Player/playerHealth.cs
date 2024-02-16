@@ -52,11 +52,13 @@ public class playerHealth : MonoBehaviour
         }
         if (collision.gameObject.name == "Hand")
         {
+            Debug.Log("hit");
             plHealth -= bossAtk.swipeAtk;
             healthText.text = "Health: " + plHealth;
         }
         if(collision.gameObject.name == "HandHitBox")
         {
+            Debug.Log("hit");
             plHealth -= bossAtk.shootAtk;
             healthText.text = "Health: " + plHealth;
             Destroy(collision.gameObject);
