@@ -28,8 +28,9 @@ public class BossRacoonHealth : MonoBehaviour
             if(deathTimer >= dead)
             {
                 Destroy(gameObject);
-                teleporter.SetActive(true);
             }
+            teleporter.SetActive(true);
+            Destroy(gameObject);
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)

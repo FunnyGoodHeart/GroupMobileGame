@@ -26118,7 +26118,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2271899984325255633, guid: 5970e4137ad291f46bba08d9cbb998bd, type: 3}
       propertyPath: plHealth
-      value: 30
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 2271899984325255633, guid: 5970e4137ad291f46bba08d9cbb998bd, type: 3}
       propertyPath: explosion
@@ -26154,7 +26154,7 @@ PrefabInstance:
       objectReference: {fileID: 1319291271}
     - target: {fileID: 5630012377700806671, guid: 5970e4137ad291f46bba08d9cbb998bd, type: 3}
       propertyPath: moveSpeed
-      value: 8
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5630012377700806671, guid: 5970e4137ad291f46bba08d9cbb998bd, type: 3}
       propertyPath: pauseCanvas
