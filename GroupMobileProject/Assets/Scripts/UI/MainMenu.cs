@@ -40,7 +40,7 @@ public class MainMenu : MonoBehaviour
 
     public void Hard()
     {
-        //SceneManager.LoadScene(y); Change y once all levels are added
+        SceneManager.LoadScene(7);
         Debug.Log("hard");
     }
 }

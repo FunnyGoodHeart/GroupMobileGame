@@ -67,7 +67,6 @@ public class bossBattleAttack : MonoBehaviour
         }
         else if ( randomAttacks == 2 && onCooldown == false || swipeNow) 
         {
-            Debug.Log("swipp");
             RacoonSwipe();
             onCooldown = true;
         }
@@ -77,22 +76,18 @@ public class bossBattleAttack : MonoBehaviour
     {
         if (colliderTimer > timeOfSwipe && clearBox == true)
         {
-            Debug.Log("clear box");
             colliderTimer = 0;
             handHitBox.enabled = false;
             clearBox = false;
         }
         if (onCooldown == false && clearBox == false)
         {
-            Debug.Log("empty cooldown");
             cooldown = 0;
         }
         if (onCooldown == true && clearBox==false)
         {
-            Debug.Log("brr cold for cool down");
             if (cooldownStart)
             {
-                Debug.Log("cooldown start");
                 cooldown = 0;
                 colliderTimer = 0;
                 randomAttacks = Random.Range(1, 3);
@@ -100,7 +95,6 @@ public class bossBattleAttack : MonoBehaviour
             }
             if (cooldown >= randomCoolDown)
             {
-                Debug.Log("cooldown end");
                 cooldown = 0;
                 colliderTimer = 0;
                 cooldownStart = true;
@@ -111,7 +105,6 @@ public class bossBattleAttack : MonoBehaviour
     }
     void RacoonShoot()
     {
-        Debug.Log("pew pew");
         ani.SetTrigger("isShooting");
         onCooldown = true;
         shootNow = false;

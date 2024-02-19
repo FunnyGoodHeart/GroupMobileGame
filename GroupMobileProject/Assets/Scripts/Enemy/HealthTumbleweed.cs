@@ -25,7 +25,6 @@ public class HealthTumbleweed : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player Bullet" && plAtk.plTriggerAtk)
         {
-            Debug.Log("owch");
             tumsHealths -= plAtk.playerAtk;
 
             if (tumsHealths <= 0)
