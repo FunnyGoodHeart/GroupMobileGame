@@ -5093,6 +5093,7 @@ MonoBehaviour:
   racoonsHealth: 69
   player: {fileID: 0}
   dead: 5
+  teleporter: {fileID: 0}
 --- !u!95 &967769508
 Animator:
   serializedVersion: 5
@@ -5392,6 +5393,10 @@ PrefabInstance:
     - target: {fileID: 3838315192868503077, guid: 5970e4137ad291f46bba08d9cbb998bd, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 5630012377700806671, guid: 5970e4137ad291f46bba08d9cbb998bd, type: 3}
+      propertyPath: canJump
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

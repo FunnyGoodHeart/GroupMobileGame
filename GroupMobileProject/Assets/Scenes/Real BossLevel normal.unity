@@ -26168,6 +26168,10 @@ PrefabInstance:
       propertyPath: universalCanvas
       value: 
       objectReference: {fileID: 2140338195}
+    - target: {fileID: 5630012377700806671, guid: 5970e4137ad291f46bba08d9cbb998bd, type: 3}
+      propertyPath: allowKeyControls
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
